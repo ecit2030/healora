@@ -229,7 +229,7 @@
             <div class="electrical-energy-chart-wrap mt-6 dash-card p-4 sm:p-6">
                 <div class="mb-4 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
                     <div>
-                        <h3 class="text-base font-bold text-slate-800 sm:text-lg">Electrical energy use</h3>
+                        <h3 class="text-base font-bold text-slate-800 sm:text-lg">Electrical Energy Use</h3>
                         <p class="mt-1 text-sm text-slate-500">Illustrative data · consumption in kWh</p>
                     </div>
                     <span class="inline-flex w-fit rounded-md bg-slate-100 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-500">Demo</span>
