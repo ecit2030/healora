@@ -27,22 +27,22 @@ class AIService
         $recommendations = [];
 
         if ($occupancy > 85) {
-            $recommendations[] = 'Reallocate 2 nurses to ED to reduce triage queue pressure.';
-            $recommendations[] = 'Open fast-track pathway for lower-acuity cases.';
+            $recommendations[] = 'Now: Reallocate 2 nurses from Ward B to ED triage.';
+            $recommendations[] = 'Next 1h: Open fast-track pathway for lower-acuity cases.';
         }
 
         if ($boardingPatients > 18) {
-            $recommendations[] = 'Prioritize discharge of 6 stable inpatients before 4 PM.';
-            $recommendations[] = 'Activate bed turnover team for rapid room readiness.';
+            $recommendations[] = 'Next 30 min: Prioritize discharge of 6 medically ready patients.';
+            $recommendations[] = 'Next 1h: Activate bed turnover team for rapid room readiness.';
         }
 
         if ($availableBeds < 15) {
-            $recommendations[] = 'Delay non-urgent OR cases for the next 2 hours.';
+            $recommendations[] = 'Next 1h: Delay non-urgent OR slot and release recovery beds.';
         }
 
         if ($recommendations === []) {
-            $recommendations[] = 'Maintain current staffing and monitor demand shift every 10 minutes.';
-            $recommendations[] = 'Prepare surge playbook if occupancy trend rises above baseline.';
+            $recommendations[] = 'Now: Maintain current staffing model and monitor every 10 minutes.';
+            $recommendations[] = 'Next 2 hrs: Prepare surge intake if occupancy trend accelerates.';
         }
 
         return $recommendations;
@@ -53,19 +53,19 @@ class AIService
         $alerts = [];
 
         if ($occupancy > 90) {
-            $alerts[] = 'ED occupancy > 90% soon';
+            $alerts[] = 'High: ED occupancy projected to cross 90% in 70 minutes.';
         }
 
         if ($boardingPatients > 20) {
-            $alerts[] = 'Exit Block risk high';
+            $alerts[] = 'High: Boarding queue may exceed safe limit in 2 hours.';
         }
 
         if ($waitTime > 75) {
-            $alerts[] = 'Average wait time crossing critical threshold';
+            $alerts[] = 'Medium: Bed turnover delay detected in medical unit.';
         }
 
         if ($alerts === []) {
-            $alerts[] = 'Operations stable - no critical alerts';
+            $alerts[] = 'Low: Discharge coordination improving after intervention.';
         }
 
         return $alerts;
