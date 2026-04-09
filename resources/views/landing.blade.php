@@ -258,20 +258,7 @@
                         </div>
                     </div>
                     <div class="hero-ai-hand-wrap relative mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none lg:justify-self-end" aria-hidden="true">
-                        <div class="hero-float-card hero-float-surface absolute left-4 top-2 z-20 max-w-[168px] rounded-2xl border border-slate-200/80 bg-white/95 px-3 py-2.5 shadow-xl shadow-slate-900/10 backdrop-blur-md">
-                            <div class="flex items-center gap-2">
-                                <span class="hero-float-badge flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[10px] font-bold text-sky-800">ED</span>
-                                <div class="min-w-0">
-                                    <p class="hero-float-muted text-[10px] font-semibold uppercase tracking-wide text-slate-500">Live board</p>
-                                    <p class="hero-float-strong truncate text-xs font-semibold text-slate-900">Flow stabilizing</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hero-float-card-delay hero-float-surface absolute bottom-[22%] left-0 z-20 max-w-[180px] rounded-2xl border border-slate-200/80 bg-white/95 px-3 py-2.5 shadow-xl shadow-slate-900/10 backdrop-blur-md sm:left-4">
-                            <p class="hero-float-muted text-[10px] font-semibold uppercase tracking-wide text-slate-500">12-hour horizon</p>
-                            <p class="hero-float-strong text-xs font-semibold text-slate-900">Congestion risk surfaced early</p>
-                        </div>
-                        <div class="relative flex min-h-[280px] items-end justify-end overflow-visible sm:min-h-[320px] lg:min-h-[360px]">
+                        <div class="relative flex min-h-[260px] items-end justify-end overflow-visible sm:min-h-[300px] lg:min-h-[360px]">
                             <div class="hero-brain pointer-events-none absolute left-1/2 top-6 z-[5] w-[min(42%,180px)] -translate-x-[20%] sm:top-4 sm:w-[min(46%,200px)]">
                                 <svg viewBox="0 0 120 100" class="w-full drop-shadow-lg" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <ellipse cx="60" cy="50" rx="44" ry="36" fill="url(#brainFill)" fill-opacity="0.35"/>
@@ -297,6 +284,19 @@
                                 decoding="async"
                                 fetchpriority="high"
                             >
+                        </div>
+                        <div class="hero-float-card hero-float-surface relative z-20 mx-auto mt-5 w-full max-w-sm rounded-2xl border border-slate-200/80 bg-white/95 px-3.5 py-3 shadow-lg shadow-slate-900/10 backdrop-blur-md lg:absolute lg:top-6 lg:left-0 lg:mx-0 lg:mt-0 lg:w-[220px] lg:max-w-none lg:-translate-x-3 xl:-translate-x-5 xl:shadow-xl">
+                            <div class="flex items-center gap-2">
+                                <span class="hero-float-badge flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[10px] font-bold text-sky-800">ED</span>
+                                <div class="min-w-0">
+                                    <p class="hero-float-muted text-[10px] font-semibold uppercase tracking-wide text-slate-500">Live board</p>
+                                    <p class="hero-float-strong text-sm font-semibold text-slate-900">Flow stabilizing</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-float-card-delay hero-float-surface relative z-20 mx-auto mt-3 w-full max-w-sm rounded-2xl border border-slate-200/80 bg-white/95 px-3.5 py-3 shadow-lg shadow-slate-900/10 backdrop-blur-md lg:absolute lg:bottom-10 lg:left-0 lg:mx-0 lg:mt-0 lg:w-[236px] lg:max-w-none lg:-translate-x-5 xl:-translate-x-7 xl:shadow-xl">
+                            <p class="hero-float-muted text-[10px] font-semibold uppercase tracking-wide text-slate-500">12-hour horizon</p>
+                            <p class="hero-float-strong text-sm font-semibold leading-snug text-slate-900">Congestion risk surfaced early</p>
                         </div>
                     </div>
                 </div>
