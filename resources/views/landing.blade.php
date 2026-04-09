@@ -220,6 +220,7 @@
                 <a href="#why" class="transition hover:text-[var(--teal)]">Why Healora</a>
                 <a href="#features" class="transition hover:text-[var(--teal)]">Features</a>
                 <a href="#impact" class="transition hover:text-[var(--teal)]">Impact</a>
+                <a href="#contact" class="transition hover:text-[var(--teal)]">Contact</a>
                 <a href="{{ route('dashboard') }}" class="transition hover:text-[var(--teal)]">Demo</a>
             </nav>
             <div class="flex items-center gap-2">
@@ -450,15 +451,23 @@
             <div class="mx-auto max-w-7xl px-4 text-center lg:px-8">
                 <h2 class="text-4xl font-bold">Ready to see Healora in action?</h2>
                 <p class="mx-auto mt-3 max-w-2xl text-xl text-teal-50">Open the live demo and explore a real control-tower workflow.</p>
-                <div class="mt-7 flex justify-center gap-3">
+                <div class="mt-7 flex flex-wrap justify-center gap-3">
                     <a href="{{ route('dashboard') }}" class="rounded-xl bg-[var(--teal)] px-7 py-3 text-sm font-semibold text-slate-900">Open Demo</a>
                     <a href="{{ route('dashboard') }}" class="rounded-xl border border-white/40 bg-white/10 px-7 py-3 text-sm font-semibold text-white">Request Pilot</a>
                 </div>
             </div>
         </section>
 
-        <footer class="border-t border-[var(--line)] bg-[var(--surface)] py-5 text-center text-sm text-[var(--muted)]">
-            © 2026 Healora Platform - AI-Powered Hospital Operations
+        <footer class="border-t border-[var(--line)] bg-[var(--surface)] px-4 py-8 text-center text-sm text-[var(--muted)]">
+            <p class="font-medium text-[var(--text)]">Contact</p>
+            <p class="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+                <span>Alanoud Khouj</span>
+                <span class="hidden sm:inline" aria-hidden="true">·</span>
+                <a href="tel:+966532005645" class="text-[var(--teal)] underline-offset-2 transition hover:underline">+966 53 200 5645</a>
+                <span class="hidden sm:inline" aria-hidden="true">·</span>
+                <a href="mailto:alanoud.khouj@gmail.com" class="text-[var(--teal)] underline-offset-2 transition hover:underline">alanoud.khouj@gmail.com</a>
+            </p>
+            <p class="mt-6">© 2026 Healora Platform - AI-Powered Hospital Operations</p>
         </footer>
     </main>
     <script>
