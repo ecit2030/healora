@@ -10,9 +10,54 @@
             --bg-soft: #e9f3f4;
             --teal: #157b84;
             --teal-dark: #0f5d68;
+            --surface: #ffffff;
+            --line: #e2e8f0;
+            --text: #1e293b;
+            --muted: #64748b;
+        }
+        body.dark-mode {
+            --bg-soft: #0b1320;
+            --teal: #2dd4bf;
+            --teal-dark: #14b8a6;
+            --surface: #0f1b2e;
+            --line: #21324f;
+            --text: #dce7f7;
+            --muted: #9ab0cf;
         }
         .app-shell {
             background: var(--bg-soft);
+        }
+        body.dark-mode .bg-white { background-color: var(--surface) !important; }
+        body.dark-mode .bg-white\/95 { background-color: rgba(15, 27, 46, 0.95) !important; }
+        body.dark-mode .bg-slate-50 { background-color: rgba(255,255,255,0.03) !important; }
+        body.dark-mode .border-slate-200,
+        body.dark-mode .border-slate-100,
+        body.dark-mode .border-teal-100 { border-color: var(--line) !important; }
+        body.dark-mode .text-slate-800,
+        body.dark-mode .text-slate-700,
+        body.dark-mode .text-slate-600,
+        body.dark-mode .text-slate-500 { color: var(--muted) !important; }
+        body.dark-mode .text-teal-700 { color: var(--teal) !important; }
+        .chip-icon{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:2rem;
+            height:2rem;
+            border-radius:9999px;
+            margin-right:.5rem;
+            background:rgba(20,184,166,.12);
+            border:1px solid rgba(20,184,166,.32);
+        }
+        .chip-icon svg{
+            width:1rem;
+            height:1rem;
+            stroke:currentColor;
+        }
+        .theme-icon{
+            width:1rem;
+            height:1rem;
+            stroke:currentColor;
         }
     </style>
 </head>
@@ -27,69 +72,78 @@
                 <a href="{{ route('dashboard') }}" class="text-teal-700">Live Board</a>
                 <a href="{{ route('recommendations') }}" class="transition hover:text-teal-700">Recommendations</a>
             </nav>
-            <a href="{{ route('landing') }}#contact" class="rounded-xl bg-teal-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-800">Contact</a>
+            <div class="flex items-center gap-2">
+                <button id="themeToggleDashboard" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-700 transition hover:bg-slate-50" aria-label="Toggle color theme" title="Toggle color theme">
+                    <span id="themeIconDashboard" aria-hidden="true">
+                        <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
+                        </svg>
+                    </span>
+                </button>
+                <a href="{{ route('landing') }}#contact" class="rounded-xl bg-teal-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-800">Contact</a>
+            </div>
         </div>
     </header>
 
     <section class="bg-gradient-to-r from-[#1a8a90] to-[#116b75]">
-        <div class="mx-auto max-w-7xl px-4 py-8 lg:px-8">
-            <div class="mb-3 flex gap-2">
-                <span class="rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-medium text-white">Demo Environment</span>
-                <span class="rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-medium text-white">Data-Driven Decisions</span>
+        <div class="mx-auto max-w-7xl px-4 py-10 lg:px-8">
+            <div class="mb-4 flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-medium text-white"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M10 3v5l-4.5 8a2 2 0 0 0 1.7 3h9.6a2 2 0 0 0 1.7-3L14 8V3"/></svg>Demo Environment</span>
+                <span class="inline-flex items-center gap-1.5 rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-medium text-white"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19h16M7 14l3-3 3 2 4-5"/></svg>Data-Driven Decisions</span>
             </div>
-            <h1 class="text-3xl font-bold text-white md:text-4xl">Healora Command Center</h1>
-            <p class="mt-2 max-w-4xl text-base text-teal-50 md:text-lg">Example of how hospital operations teams monitor congestion, receive predictive alerts, and execute decisions in one control-tower dashboard.</p>
+            <h1 class="text-4xl font-bold text-white md:text-5xl">Healora Command Center</h1>
+            <p class="mt-3 max-w-4xl text-lg text-teal-50 md:text-xl">Example of how hospital operations teams monitor congestion, receive predictive alerts, and execute decisions in one control-tower dashboard.</p>
         </div>
     </section>
 
-    <main class="mx-auto max-w-7xl px-4 py-6 lg:px-8">
-        <section class="grid gap-5 lg:grid-cols-12">
-            <div class="space-y-4 lg:col-span-3">
-                <article class="rounded-2xl border border-teal-100 bg-white p-4 shadow-sm">
-                    <p class="text-xl font-semibold text-[var(--teal)]">Hospital Status</p>
-                    <div class="mt-3 space-y-2">
-                        <div class="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2">
+    <main class="mx-auto max-w-7xl px-4 py-8 lg:px-8">
+        <section class="grid gap-6 lg:grid-cols-12">
+            <div class="space-y-5 lg:col-span-4">
+                <article class="rounded-2xl border border-teal-100 bg-white p-6 shadow-sm">
+                    <p class="text-2xl font-semibold text-[var(--teal)]"><span class="chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14M9 20v-4h6v4M9 8h.01M15 8h.01M9 12h.01M15 12h.01"/></svg></span>Hospital Status</p>
+                    <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                        <div class="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3">
                             <p class="text-sm text-slate-500">ED Occupancy</p>
-                            <p class="text-2xl font-bold text-teal-700"><span id="occupancy">{{ $ed_occupancy }}</span>%</p>
+                            <p class="text-3xl font-bold text-teal-700"><span id="occupancy">{{ $ed_occupancy }}</span>%</p>
                         </div>
-                        <div class="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2">
+                        <div class="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3">
                             <p class="text-sm text-slate-500">Boarding Patients</p>
-                            <p class="text-2xl font-bold text-slate-800" id="boarding">{{ $boarding_patients }}</p>
+                            <p class="text-3xl font-bold text-slate-800" id="boarding">{{ $boarding_patients }}</p>
                         </div>
-                        <div class="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2">
+                        <div class="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3">
                             <p class="text-sm text-slate-500">Available Beds</p>
-                            <p class="text-2xl font-bold text-slate-800" id="beds">{{ $available_beds }}</p>
+                            <p class="text-3xl font-bold text-slate-800" id="beds">{{ $available_beds }}</p>
                         </div>
-                        <div class="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2">
+                        <div class="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3">
                             <p class="text-sm text-slate-500">Avg Wait Time</p>
-                            <p class="text-2xl font-bold text-teal-700"><span id="wait">{{ $avg_wait_time }}</span>m</p>
+                            <p class="text-3xl font-bold text-teal-700"><span id="wait">{{ $avg_wait_time }}</span>m</p>
                         </div>
                     </div>
                 </article>
 
-                <section class="rounded-2xl border border-teal-100 bg-white p-4 shadow-sm">
-                    <h2 class="text-lg font-semibold text-teal-700">AI Recommendations</h2>
+                <section class="rounded-2xl border border-teal-100 bg-white p-6 shadow-sm">
+                    <h2 class="text-2xl font-semibold text-teal-700"><span class="chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3a6 6 0 0 0-3.8 10.6c.8.7 1.3 1.5 1.3 2.4h5c0-.9.5-1.7 1.3-2.4A6 6 0 0 0 12 3Z"/><path stroke-linecap="round" d="M10 19h4M10.5 21h3"/></svg></span>AI Recommendations</h2>
                     <ul id="recommendationsList" class="mt-3 list-disc space-y-2 pl-5 text-slate-700">
                         @foreach ($recommendations as $recommendation)
-                            <li class="text-sm leading-7 md:text-base">{{ $recommendation }}</li>
+                            <li class="text-base leading-8 md:text-lg">{{ $recommendation }}</li>
                         @endforeach
                     </ul>
                 </section>
             </div>
 
-            <div class="space-y-4 lg:col-span-9">
-                <section class="rounded-2xl border border-teal-100 bg-white p-4 shadow-sm">
-                    <div class="mb-2 flex items-center justify-between">
-                        <h2 class="text-xl font-semibold text-teal-700 md:text-2xl">Predicted ED Congestion (Next 12 Hours)</h2>
+            <div class="space-y-5 lg:col-span-8">
+                <section class="rounded-2xl border border-teal-100 bg-white p-6 shadow-sm">
+                    <div class="mb-3 flex items-center justify-between">
+                        <h2 class="text-2xl font-semibold text-teal-700 md:text-3xl"><span class="chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19h16M7 15l3-3 3 2 4-5"/></svg></span>Predicted ED Congestion (Next 12 Hours)</h2>
                         <span class="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">AI Model Active</span>
                     </div>
-                    <div class="h-56 rounded-xl bg-slate-50 p-2">
+                    <div class="h-72 rounded-xl bg-slate-50 p-3">
                         <svg id="chart" viewBox="0 0 700 240" class="h-full w-full"></svg>
                     </div>
                 </section>
 
-                <section class="rounded-2xl border border-teal-100 bg-white p-4 shadow-sm">
-                    <h2 class="text-2xl font-semibold text-teal-700">Alert Feed</h2>
+                <section class="rounded-2xl border border-teal-100 bg-white p-6 shadow-sm">
+                    <h2 class="text-2xl font-semibold text-teal-700 md:text-3xl"><span class="chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.3 3.9 2.6 17.2A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.8L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>Alert Feed</h2>
                     <p class="mb-3 mt-1 text-xs text-slate-500">Updated at <span id="updatedAt">{{ $updated_at }}</span></p>
                     <ul id="alertsList" class="space-y-3">
                         @foreach ($alerts as $alert)
@@ -108,6 +162,7 @@
         const dataUrl = @json(route('dashboard.data'));
         let currentPredictions = @json($predictions);
         let alertHistory = @json($alerts).map((message) => ({ message, time: null }));
+        const themeKey = 'healora-theme';
 
         function getRiyadhTime() {
             return new Intl.DateTimeFormat('en-GB', {
@@ -208,6 +263,28 @@
                 console.error('Unable to refresh dashboard data.', error);
             }
         }
+
+        (function () {
+            const toggle = document.getElementById('themeToggleDashboard');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const saved = localStorage.getItem(themeKey);
+            const isDark = saved ? saved === 'dark' : prefersDark;
+            if (isDark) document.body.classList.add('dark-mode');
+
+            function updateThemeLabel() {
+                const icon = document.getElementById('themeIconDashboard');
+                icon.innerHTML = document.body.classList.contains('dark-mode')
+                    ? '<svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="4"></circle><path stroke-linecap="round" d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>'
+                    : '<svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg>';
+            }
+
+            updateThemeLabel();
+            toggle.addEventListener('click', function () {
+                document.body.classList.toggle('dark-mode');
+                localStorage.setItem(themeKey, document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+                updateThemeLabel();
+            });
+        })();
 
         document.getElementById('updatedAt').textContent = getRiyadhTime();
         buildChart(currentPredictions);

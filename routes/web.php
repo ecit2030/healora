@@ -8,3 +8,4 @@ Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dashboard/data', [DashboardController::class, 'data'])->name('dashboard.data');
 Route::get('/recommendations', [DashboardController::class, 'index'])->name('recommendations');
+Route::view('/design-options', 'landing-options')->name('landing.options');
