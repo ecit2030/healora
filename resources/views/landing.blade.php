@@ -61,6 +61,153 @@
             height:1rem;
             stroke:currentColor;
         }
+        @keyframes hero-hand-drift{
+            0%,100%{ transform: translateY(0) rotate(-1deg); }
+            50%{ transform: translateY(-8px) rotate(1deg); }
+        }
+        .hero-ai-hand-wrap{
+            animation: hero-hand-drift 8s ease-in-out infinite;
+        }
+        .hero-float-card{
+            animation: hero-float-card 6s ease-in-out infinite;
+        }
+        .hero-float-card-delay{
+            animation: hero-float-card 7s ease-in-out infinite 0.8s;
+        }
+        @keyframes hero-float-card{
+            0%,100%{ transform: translateY(0); }
+            50%{ transform: translateY(-6px); }
+        }
+        .hero-landing{
+            --h-fg:#0f172a;
+            --h-muted:#475569;
+            --h-soft:#64748b;
+            background:linear-gradient(152deg,#f1f5f9 0%,#eef6f9 38%,#e2e8f0 72%,#dbeafe 100%);
+            color:var(--h-fg);
+            transition:background .55s ease,color .35s ease;
+        }
+        body.dark-mode .hero-landing{
+            --h-fg:#ffffff;
+            --h-muted:#d1fae5;
+            --h-soft:rgba(255,255,255,0.72);
+            background:linear-gradient(to right,var(--hero-start),var(--hero-mid),var(--hero-end));
+            color:var(--h-fg);
+        }
+        .hero-landing .hero-kpi-strip{
+            position:relative;
+            margin-top:0;
+            padding-top:2.75rem;
+            padding-bottom:2.25rem;
+            background:linear-gradient(
+                180deg,
+                rgba(255,255,255,0) 0%,
+                rgba(241,245,249,0.28) 18%,
+                rgba(233,243,244,0.75) 55%,
+                rgba(233,243,244,0.97) 82%,
+                var(--bg-soft) 100%
+            );
+            border-top:none;
+            box-shadow:inset 0 1px 0 rgba(255,255,255,0.55);
+            transition:background .55s ease,box-shadow .4s ease;
+        }
+        .hero-landing .hero-kpi-strip::before{
+            content:'';
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            height:5rem;
+            pointer-events:none;
+            background:linear-gradient(180deg,rgba(15,23,42,0.04) 0%,transparent 100%);
+            opacity:0.45;
+        }
+        body.dark-mode .hero-landing .hero-kpi-strip{
+            background:linear-gradient(
+                180deg,
+                rgba(255,255,255,0) 0%,
+                rgba(6,17,39,0.42) 22%,
+                rgba(11,19,32,0.82) 58%,
+                rgba(11,19,46,0.94) 85%,
+                var(--bg-soft) 100%
+            );
+            border-top:none;
+            box-shadow:inset 0 1px 0 rgba(255,255,255,0.06);
+            transition:background .55s ease,box-shadow .4s ease;
+        }
+        body.dark-mode .hero-landing .hero-kpi-strip::before{
+            background:linear-gradient(180deg,rgba(0,0,0,0.35) 0%,transparent 100%);
+            opacity:0.5;
+        }
+        .hero-landing .hero-kpi-card{
+            transition:background-color .35s ease,border-color .35s ease,box-shadow .35s ease,transform .25s ease;
+        }
+        .hero-kpi-bridge{
+            min-height:2.25rem;
+            margin-top:2.5rem;
+            margin-bottom:0;
+            background:linear-gradient(180deg,transparent 0%,rgba(219,234,254,0.14) 55%,rgba(226,232,240,0.28) 100%);
+            pointer-events:none;
+        }
+        @media (min-width:1024px){
+            .hero-kpi-bridge{ min-height:2.75rem; margin-top:3rem; }
+        }
+        body.dark-mode .hero-kpi-bridge{
+            background:linear-gradient(180deg,transparent 0%,rgba(20,184,166,0.07) 45%,rgba(11,37,48,0.25) 100%);
+        }
+        .hero-brain{
+            filter:drop-shadow(0 8px 24px rgba(14,165,233,0.25));
+        }
+        body.dark-mode .hero-brain{
+            filter:drop-shadow(0 8px 28px rgba(45,212,191,0.35));
+        }
+        .hero-hand-img{
+            filter:drop-shadow(0 28px 48px rgba(15,23,42,0.14));
+        }
+        body.dark-mode .hero-hand-img{
+            filter:drop-shadow(0 24px 56px rgba(0,0,0,0.45));
+        }
+        body.dark-mode .hero-pill{
+            border-color:rgba(255,255,255,0.2)!important;
+            background:rgba(255,255,255,0.1)!important;
+            color:rgba(255,255,255,0.95)!important;
+        }
+        body.dark-mode .hero-btn-primary{
+            background:#fff!important;
+            color:#0f172a!important;
+        }
+        body.dark-mode .hero-btn-primary:hover{
+            background:#f1f5f9!important;
+        }
+        body.dark-mode .hero-btn-secondary{
+            border-color:rgba(255,255,255,0.28)!important;
+            background:rgba(255,255,255,0.06)!important;
+            color:#fff!important;
+        }
+        body.dark-mode .hero-float-surface{
+            border-color:rgba(255,255,255,0.15)!important;
+            background:rgba(15,27,46,0.88)!important;
+        }
+        body.dark-mode .hero-float-badge{
+            background:rgba(20,184,166,0.22)!important;
+            color:#99f6e4!important;
+        }
+        body.dark-mode .hero-float-muted{
+            color:#94a3b8!important;
+        }
+        body.dark-mode .hero-float-strong{
+            color:#fff!important;
+        }
+        body.dark-mode .hero-kpi-card{
+            border-color:#203353!important;
+            background:#0b1a36!important;
+        }
+        body.dark-mode .hero-kpi-label{
+            color:#94a3b8!important;
+        }
+        .hero-landing .hero-kpi-label,
+        .hero-landing .hero-kpi-card p.mt-1{
+            transition:color .35s ease;
+        }
     </style>
 </head>
 <body class="bg-[var(--bg-soft)] text-[var(--text)] antialiased">
@@ -88,45 +235,88 @@
     </header>
 
     <main>
-        <section class="relative overflow-hidden pt-14 text-white" style="background-image: linear-gradient(to right, var(--hero-start), var(--hero-mid), var(--hero-end));">
-            <div class="pointer-events-none absolute -top-10 left-16 h-56 w-56 rounded-full bg-teal-300/20 blur-3xl"></div>
-            <div class="pointer-events-none absolute top-16 right-10 h-48 w-48 rounded-full bg-cyan-300/20 blur-3xl"></div>
-            <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent via-[#071631]/70 to-[#06132b]"></div>
-            <div class="mx-auto max-w-7xl px-4 lg:px-8">
-                <div>
-                    <span class="inline-flex items-center gap-2 rounded-full border border-white/30 px-4 py-1 text-xs font-semibold tracking-wide" style="background-color: var(--hero-pill);">
-                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-                        </svg>
-                        Command Center Mode
-                    </span>
-                    <h1 class="mt-5 max-w-4xl text-5xl font-bold leading-tight md:text-6xl">AI Control Tower for Hospital Throughput</h1>
-                    <p class="mt-4 max-w-3xl text-xl" style="color: var(--hero-body);">Bolder visual authority, boardroom-ready, strong technology impression.</p>
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <a href="{{ route('dashboard') }}" class="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[#0b2530]">View Live Demo</a>
-                        <a href="#features" class="rounded-xl border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold text-white">Explore Features</a>
+        <section class="hero-landing relative overflow-hidden pt-12 pb-0">
+            <div class="pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full bg-sky-200/35 blur-3xl"></div>
+            <div class="pointer-events-none absolute -right-16 top-24 h-64 w-64 rounded-full bg-cyan-200/30 blur-3xl"></div>
+            <div class="pointer-events-none absolute bottom-32 left-1/2 h-40 w-64 -translate-x-1/2 rounded-full bg-teal-200/20 blur-3xl"></div>
+            <div class="relative z-[1] mx-auto max-w-7xl px-4 lg:px-8">
+                <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-8 lg:py-4">
+                    <div>
+                        <span class="hero-pill inline-flex items-center gap-2 rounded-full border border-slate-200/90 bg-white/90 px-4 py-1.5 text-xs font-semibold tracking-wide text-slate-700 shadow-sm backdrop-blur-sm">
+                            <svg class="h-3.5 w-3.5 text-[var(--teal)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                            </svg>
+                            Command Center Mode
+                        </span>
+                        <h1 class="mt-5 max-w-4xl text-5xl font-bold leading-tight md:text-6xl" style="color:var(--h-fg)">AI Control Tower for Hospital Throughput</h1>
+                        <p class="mt-4 max-w-3xl text-xl" style="color:var(--h-muted)">Bolder visual authority, boardroom-ready, strong technology impression.</p>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="{{ route('dashboard') }}" class="hero-btn-primary inline-flex items-center justify-center rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-slate-900/15 transition hover:bg-slate-800">View Live Demo</a>
+                            <a href="#features" class="hero-btn-secondary inline-flex items-center justify-center rounded-xl border border-slate-300/90 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-800 backdrop-blur-sm transition hover:bg-white">Explore Features</a>
+                        </div>
+                    </div>
+                    <div class="hero-ai-hand-wrap relative mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none lg:justify-self-end" aria-hidden="true">
+                        <div class="hero-float-card hero-float-surface absolute left-4 top-2 z-20 max-w-[168px] rounded-2xl border border-slate-200/80 bg-white/95 px-3 py-2.5 shadow-xl shadow-slate-900/10 backdrop-blur-md">
+                            <div class="flex items-center gap-2">
+                                <span class="hero-float-badge flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[10px] font-bold text-sky-800">ED</span>
+                                <div class="min-w-0">
+                                    <p class="hero-float-muted text-[10px] font-semibold uppercase tracking-wide text-slate-500">Live board</p>
+                                    <p class="hero-float-strong truncate text-xs font-semibold text-slate-900">Flow stabilizing</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-float-card-delay hero-float-surface absolute bottom-[22%] left-0 z-20 max-w-[180px] rounded-2xl border border-slate-200/80 bg-white/95 px-3 py-2.5 shadow-xl shadow-slate-900/10 backdrop-blur-md sm:left-4">
+                            <p class="hero-float-muted text-[10px] font-semibold uppercase tracking-wide text-slate-500">12-hour horizon</p>
+                            <p class="hero-float-strong text-xs font-semibold text-slate-900">Congestion risk surfaced early</p>
+                        </div>
+                        <div class="relative flex min-h-[280px] items-end justify-end overflow-visible sm:min-h-[320px] lg:min-h-[360px]">
+                            <div class="hero-brain pointer-events-none absolute left-1/2 top-6 z-[5] w-[min(42%,180px)] -translate-x-[20%] sm:top-4 sm:w-[min(46%,200px)]">
+                                <svg viewBox="0 0 120 100" class="w-full drop-shadow-lg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="60" cy="50" rx="44" ry="36" fill="url(#brainFill)" fill-opacity="0.35"/>
+                                    <ellipse cx="60" cy="48" rx="36" ry="30" stroke="#38bdf8" stroke-width="0.9" stroke-opacity="0.85"/>
+                                    <path d="M38 44c6-8 18-10 28-4m16 4c-4 10-16 14-26 10" stroke="#7dd3fc" stroke-width="0.7" stroke-linecap="round" stroke-opacity="0.7"/>
+                                    <circle cx="48" cy="42" r="2" fill="#38bdf8" fill-opacity="0.9"/>
+                                    <circle cx="68" cy="38" r="1.8" fill="#67e8f9"/>
+                                    <circle cx="76" cy="52" r="1.6" fill="#22d3ee" fill-opacity="0.8"/>
+                                    <defs>
+                                        <radialGradient id="brainFill" cx="50%" cy="40%" r="65%">
+                                            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.55"/>
+                                            <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+                                        </radialGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <img
+                                src="{{ asset('brand/hero-ai-hand.png') }}"
+                                alt="Robotic palm-up hand with transparent background representing AI-guided hospital operations"
+                                class="hero-hand-img relative z-10 h-auto w-full max-w-[640px] origin-bottom-right scale-[1.02] object-contain object-right select-none sm:scale-105 lg:max-w-none lg:w-[115%] lg:translate-x-4 xl:w-[122%]"
+                                width="707"
+                                height="353"
+                                decoding="async"
+                                fetchpriority="high"
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="relative mt-12 py-5">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#061127]/94 via-[#081830]/92 to-[#072038]/92"></div>
-                <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-                <div class="relative z-10 mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
-                    <div class="rounded-2xl border border-[#203353] bg-[#0b1a36] p-5">
-                        <p class="text-sm text-slate-400">Prediction Accuracy</p>
-                        <p class="mt-1 text-4xl font-bold text-[#56d5cc]">95-98%</p>
+            <div class="hero-kpi-bridge relative z-[1]" aria-hidden="true"></div>
+            <div class="hero-kpi-strip relative z-[1]">
+                <div class="relative mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+                    <div class="hero-kpi-card rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm backdrop-blur-sm">
+                        <p class="hero-kpi-label text-sm text-slate-500">Prediction accuracy</p>
+                        <p class="mt-1 text-3xl font-bold text-[var(--teal)] md:text-4xl">95–98%</p>
                     </div>
-                    <div class="rounded-2xl border border-[#203353] bg-[#0b1a36] p-5">
-                        <p class="text-sm text-slate-400">Forecast Horizon</p>
-                        <p class="mt-1 text-4xl font-bold text-[#56d5cc]">12h</p>
+                    <div class="hero-kpi-card rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm backdrop-blur-sm">
+                        <p class="hero-kpi-label text-sm text-slate-500">Forecast horizon</p>
+                        <p class="mt-1 text-3xl font-bold text-[var(--teal)] md:text-4xl">12h</p>
                     </div>
-                    <div class="rounded-2xl border border-[#203353] bg-[#0b1a36] p-5">
-                        <p class="text-sm text-slate-400">Potential Savings</p>
-                        <p class="mt-1 text-4xl font-bold text-[#56d5cc]">6.5%</p>
+                    <div class="hero-kpi-card rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm backdrop-blur-sm">
+                        <p class="hero-kpi-label text-sm text-slate-500">Potential savings</p>
+                        <p class="mt-1 text-3xl font-bold text-[var(--teal)] md:text-4xl">6.5%</p>
                     </div>
-                    <div class="rounded-2xl border border-[#203353] bg-[#0b1a36] p-5">
-                        <p class="text-sm text-slate-400">Action Latency</p>
-                        <p class="mt-1 text-4xl font-bold text-[#56d5cc]">-43%</p>
+                    <div class="hero-kpi-card rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm backdrop-blur-sm">
+                        <p class="hero-kpi-label text-sm text-slate-500">Action latency</p>
+                        <p class="mt-1 text-3xl font-bold text-[var(--teal)] md:text-4xl">−43%</p>
                     </div>
                 </div>
             </div>
