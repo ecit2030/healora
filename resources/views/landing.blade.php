@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healora | AI Command Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --healora-teal: #0ea5a3;
+            --healora-deep-teal: #0f766e;
+            --healora-mint: #ccfbf1;
+            --healora-purple: #d6bcfa;
+        }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
     <header class="sticky top-0 z-30 border-b border-teal-100/80 bg-white/90 backdrop-blur">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-            <a href="{{ route('landing') }}" class="flex items-center gap-3">
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-teal-700 text-lg font-bold text-white">H</span>
-                <div>
-                    <p class="text-sm font-semibold uppercase tracking-widest text-teal-700">Healora</p>
-                    <p class="text-xs text-slate-500">Hospital AI Operations</p>
-                </div>
+            <a href="{{ route('landing') }}" class="flex items-center gap-4">
+                <img src="{{ asset('brand/healora-logo.png') }}" alt="Healora logo" class="h-11 w-32 rounded-lg object-cover ring-1 ring-slate-200">
+                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-teal-700">Hospital AI Operations</p>
             </a>
             <nav class="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
                 <a href="{{ route('landing') }}" class="transition hover:text-teal-700">Landing</a>
@@ -26,12 +31,12 @@
     </header>
 
     <main>
-        <section class="relative overflow-hidden bg-gradient-to-br from-teal-950 via-teal-800 to-emerald-700">
-            <div class="absolute -left-10 top-12 h-56 w-56 rounded-full bg-teal-300/30 blur-3xl"></div>
-            <div class="absolute -right-10 bottom-0 h-72 w-72 rounded-full bg-emerald-200/20 blur-3xl"></div>
+        <section class="relative overflow-hidden bg-gradient-to-br from-[#0c3b38] via-[#0f766e] to-[#10b7a6]">
+            <div class="absolute -left-10 top-12 h-56 w-56 rounded-full bg-teal-200/30 blur-3xl"></div>
+            <div class="absolute -right-10 bottom-0 h-72 w-72 rounded-full bg-fuchsia-200/30 blur-3xl"></div>
             <div class="mx-auto grid max-w-7xl gap-10 px-6 py-24 lg:grid-cols-2 lg:px-8">
                 <div class="space-y-8 text-white">
-                    <span class="inline-block rounded-full bg-teal-100/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-teal-50">AI for Hospital Throughput</span>
+                    <span class="inline-block rounded-full bg-white/15 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-teal-50">AI for Hospital Throughput</span>
                     <h1 class="text-4xl font-bold leading-tight md:text-5xl">AI Command Center for Hospital Operations</h1>
                     <p class="max-w-xl text-lg text-teal-50">Predict bottlenecks. Optimize resources. Save lives.</p>
                     <a href="{{ route('dashboard') }}" class="inline-flex items-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-teal-700 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">

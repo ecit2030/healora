@@ -9,16 +9,19 @@
         .app-shell {
             background: #eaf4f5;
         }
+        :root {
+            --healora-teal: #0ea5a3;
+            --healora-deep-teal: #0f766e;
+            --healora-mint: #ccfbf1;
+            --healora-purple: #d6bcfa;
+        }
     </style>
 </head>
 <body class="app-shell min-h-screen text-slate-800 antialiased">
     <header class="border-b border-slate-200 bg-white/95">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
             <a href="{{ route('landing') }}" class="flex items-center gap-3">
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-teal-700 text-lg font-bold text-white">✚</span>
-                <div>
-                    <p class="text-sm font-semibold uppercase tracking-[0.45em] text-teal-700">HEALORA</p>
-                </div>
+                <img src="{{ asset('brand/healora-logo.png') }}" alt="Healora logo" class="h-11 w-36 rounded-lg object-cover ring-1 ring-slate-200">
             </a>
             <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
                 <a href="{{ route('landing') }}" class="transition hover:text-teal-700">Landing</a>
@@ -127,7 +130,7 @@
             if (alert.startsWith('Medium:')) {
                 return 'rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-base font-medium text-amber-900';
             }
-            return 'rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-base font-medium text-emerald-900';
+            return 'rounded-2xl border border-teal-200 bg-teal-50 px-5 py-4 text-base font-medium text-teal-900';
         }
 
         function renderList(elementId, items, classes, listType = 'normal') {
