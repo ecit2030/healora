@@ -291,7 +291,7 @@
                             <img
                                 src="{{ asset('brand/hero-ai-hand.png') }}"
                                 alt="Robotic palm-up hand with transparent background representing AI-guided hospital operations"
-                                class="hero-hand-img relative z-10 h-auto w-full max-w-[640px] origin-bottom-right scale-[1.02] object-contain object-right select-none sm:scale-105 lg:max-w-none lg:w-[115%] lg:translate-x-4 xl:w-[122%]"
+                                class="hero-hand-img relative z-10 h-auto w-full max-w-[640px] origin-bottom-right scale-[1.02] object-contain object-right select-none sm:scale-105 lg:max-w-none lg:w-[115%] lg:translate-x-10 xl:translate-x-14 xl:w-[122%]"
                                 width="707"
                                 height="353"
                                 decoding="async"
