@@ -56,3 +56,31 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Healora Deployment Notes (Laravel Forge)
+
+If deployment fails with:
+
+`SQLSTATE[HY000] [1045] Access denied for user 'forge'@'localhost'`
+
+the issue is database credentials on the server, not app code. Use this checklist:
+
+1. Confirm Forge site points to the correct repository: `https://github.com/asuwairi/healora.git`.
+2. In Forge Environment, set:
+   - `DB_CONNECTION=mysql`
+   - `DB_HOST=127.0.0.1`
+   - `DB_PORT=3306`
+   - `DB_DATABASE=healora`
+   - `DB_USERNAME=<your-mysql-user>`
+   - `DB_PASSWORD=<matching-mysql-password>`
+3. Ensure the MySQL user exists and has privileges on `healora`.
+4. Redeploy.
+
+Recommended Forge deploy commands:
+
+```bash
+composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+php artisan optimize
+php artisan storage:link || true
+php artisan migrate --force
+```
