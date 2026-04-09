@@ -8,15 +8,16 @@ use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
-    public function __construct(private readonly AIService $aiService)
-    {
-    }
+    public function __construct(private readonly AIService $aiService) {}
 
     public function index(): View
     {
         $metrics = $this->buildMetrics();
 
-        return view('dashboard', $metrics);
+        return view('dashboard', array_merge($metrics, [
+            'hospitalNav' => HospitalDemoController::navItems(),
+            'opsNetworkFlow' => HospitalDemoController::networkPatientFlowSummary(),
+        ]));
     }
 
     public function data(): JsonResponse
