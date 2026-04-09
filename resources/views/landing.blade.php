@@ -6,84 +6,101 @@
     <title>Healora | AI Command Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root{
-            --bg-soft:#e9f3f4;
-            --teal:#157b84;
-            --teal-dark:#0f5d68;
-            --card:#f7fbfc;
+        :root {
+            --bg-soft: #d8e1ec;
+            --surface: #eaf0f7;
+            --ink: #0b1324;
+            --muted: #4f5d75;
+            --line: #cfd7e3;
+            --card: #edf3fa;
+            --brand: #1c5f86;
+            --brand-dark: #0f3f63;
         }
     </style>
 </head>
-<body class="bg-[var(--bg-soft)] text-slate-700 antialiased">
-    <header class="sticky top-0 z-30 border-b border-slate-200 bg-white/95">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
-            <a href="{{ route('landing') }}" class="flex items-center gap-3">
-                <img src="{{ asset('brand/healora-wordmark.png') }}" alt="Healora wordmark" class="h-10 w-auto object-contain">
-            </a>
-            <nav class="hidden items-center gap-6 text-sm font-semibold text-slate-600 md:flex">
-                <a href="#why" class="transition hover:text-[var(--teal)]">Why Healora</a>
-                <a href="#features" class="transition hover:text-[var(--teal)]">Features</a>
-                <a href="#impact" class="transition hover:text-[var(--teal)]">Impact</a>
-            </nav>
-            <a href="{{ route('dashboard') }}" class="rounded-xl bg-[var(--teal)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--teal-dark)]">Open Demo</a>
-        </div>
-    </header>
+<body class="min-h-screen bg-[var(--bg-soft)] text-[var(--ink)] antialiased">
+    <main class="mx-auto max-w-[1240px] px-5 py-8 lg:px-8">
+        <section class="rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-7 shadow-[0_30px_70px_-40px_rgba(15,35,65,.5)] lg:p-10">
+            <header class="flex items-center justify-between">
+                <a href="{{ route('landing') }}" class="flex items-center gap-3">
+                    <img src="{{ asset('brand/healora-wordmark.png') }}" alt="Healora wordmark" class="h-10 w-auto object-contain">
+                </a>
+                <nav class="hidden items-center gap-7 text-sm font-medium text-[var(--muted)] md:flex">
+                    <a href="#about" class="transition hover:text-[var(--brand)]">Home</a>
+                    <a href="#about" class="transition hover:text-[var(--brand)]">About</a>
+                    <a href="#technology" class="transition hover:text-[var(--brand)]">Technology</a>
+                    <a href="#services" class="transition hover:text-[var(--brand)]">Services</a>
+                </nav>
+                <a href="{{ route('dashboard') }}" class="rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800">Book a call</a>
+            </header>
 
-    <main>
-        <section class="bg-gradient-to-r from-[#1a8a90] via-[#147b84] to-[#0d4e68] py-16 text-white">
-            <div class="mx-auto grid max-w-7xl gap-8 px-4 lg:grid-cols-[1.3fr_1fr] lg:px-8">
-                <div>
-                    <span class="inline-block rounded-full border border-white/30 bg-white/15 px-4 py-1 text-xs font-semibold">AI Hospital Operations Platform</span>
-                    <h1 class="mt-5 max-w-2xl text-5xl font-bold leading-tight">Predict Exit Block before it impacts patient care.</h1>
-                    <p class="mt-4 max-w-2xl text-lg text-slate-100">Healora gives hospitals a real-time control tower that predicts congestion, prioritizes actions, and helps teams make faster and better operational decisions.</p>
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <a href="{{ route('dashboard') }}" class="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[var(--teal-dark)]">View Live Demo</a>
-                        <a href="#features" class="rounded-xl border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold text-white">Explore Features</a>
+            <div class="mt-10 grid gap-8 lg:grid-cols-[1.05fr_.95fr]">
+                <div class="space-y-6">
+                    <span class="inline-block rounded-full border border-slate-200 bg-white px-4 py-1 text-xs font-medium text-slate-600">World's Most Adopted Healthcare AI</span>
+                    <h1 class="max-w-xl text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">Revolutionizing Healthcare with AI</h1>
+                    <p class="max-w-xl text-lg leading-8 text-[var(--muted)]">Redefine healthcare with AI. Experience the power of faster diagnostics and precisely tailored treatments, designed by Healora. Bridge the gap between intelligent technology and clinical excellence.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="{{ route('dashboard') }}" class="rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">Book a call</a>
+                        <a href="{{ route('dashboard') }}" class="rounded-full border border-slate-300 bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-white">Appointment</a>
+                    </div>
+                    <div class="flex items-center gap-3 pt-3">
+                        <div class="flex -space-x-2">
+                            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white bg-slate-300 text-xs font-semibold text-slate-700">A</span>
+                            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white bg-slate-300 text-xs font-semibold text-slate-700">M</span>
+                            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white bg-slate-300 text-xs font-semibold text-slate-700">S</span>
+                        </div>
+                        <p class="text-sm text-[var(--muted)]"><span class="font-semibold text-slate-700">Rated 5/5</span> and trusted by <span class="font-semibold text-slate-700">1000+ patients</span></p>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur">
-                        <p class="text-xs text-slate-200">Prediction Accuracy</p>
-                        <p class="mt-1 text-3xl font-bold">95-98%</p>
+
+                <div class="relative min-h-[460px] rounded-[1.6rem] border border-slate-200 bg-gradient-to-br from-[#dfe8f2] via-[#d4dfed] to-[#cad7e9] p-6 overflow-hidden">
+                    <div class="absolute -top-8 left-10 h-44 w-44 rounded-full bg-cyan-200/70 blur-2xl"></div>
+                    <div class="absolute top-10 right-6 h-52 w-52 rounded-full bg-indigo-200/70 blur-3xl"></div>
+                    <div class="absolute bottom-6 left-8 right-8 h-64 rounded-[1.8rem] bg-gradient-to-br from-[#b4c4d9] to-[#8aa0be]"></div>
+                    <div class="absolute bottom-14 left-16 right-16 h-56 rounded-[1.6rem] border border-white/40 bg-white/20 backdrop-blur-md"></div>
+                    <div class="absolute right-2 top-1/2 flex -translate-y-1/2 flex-col gap-2">
+                        <span class="h-8 w-8 rounded-full bg-white/80 shadow"></span>
+                        <span class="h-8 w-8 rounded-full bg-white/80 shadow"></span>
+                        <span class="h-8 w-8 rounded-full bg-white/80 shadow"></span>
                     </div>
-                    <div class="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur">
-                        <p class="text-xs text-slate-200">Forecast Horizon</p>
-                        <p class="mt-1 text-3xl font-bold">12 Hours</p>
+                    <div class="absolute right-6 top-8 rounded-2xl border border-white/40 bg-white/55 px-4 py-3 backdrop-blur">
+                        <p class="text-3xl font-semibold text-slate-800">300+</p>
+                        <p class="text-xs text-slate-600">Expert doctors</p>
                     </div>
-                    <div class="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur">
-                        <p class="text-xs text-slate-200">Potential Cost Reduction</p>
-                        <p class="mt-1 text-3xl font-bold">6.5% ED Spend</p>
+                    <div class="absolute left-8 top-8 rounded-2xl border border-white/40 bg-white/55 px-4 py-3 backdrop-blur">
+                        <p class="text-3xl font-semibold text-slate-800">12h</p>
+                        <p class="text-xs text-slate-600">Forecast horizon</p>
                     </div>
-                    <div class="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur">
-                        <p class="text-xs text-slate-200">Value from 1h Wait Cut</p>
-                        <p class="mt-1 text-3xl font-bold">$4.9M</p>
+                    <div class="absolute bottom-5 right-10 rounded-2xl border border-white/40 bg-white/70 px-4 py-3 backdrop-blur">
+                        <p class="text-3xl font-semibold text-slate-800">5,000+</p>
+                        <p class="text-xs text-slate-600">Successful treatment</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="why" class="mx-auto max-w-7xl px-4 py-14 lg:px-8">
-            <h2 class="text-center text-4xl font-bold text-[var(--teal-dark)]">Why Healora</h2>
-            <p class="mt-3 text-center text-xl text-slate-600">Hospitals do not fail from lack of data. They fail from delayed decisions.</p>
+        <section id="about" class="py-14">
+            <h2 class="text-center text-4xl font-bold text-[var(--brand-dark)]">Why Healora</h2>
+            <p class="mt-3 text-center text-lg text-[var(--muted)]">Hospitals do not fail from lack of data. They fail from delayed decisions.</p>
             <div class="mt-8 grid gap-4 md:grid-cols-3">
-                <article class="rounded-2xl border border-slate-200 bg-[var(--card)] p-5 shadow-sm">
-                    <h3 class="text-2xl font-semibold text-[var(--teal)]">Current Pain</h3>
-                    <p class="mt-2 text-lg">Fragmented communication, siloed workflows, and reactive management.</p>
+                <article class="rounded-2xl border border-[var(--line)] bg-[var(--card)] p-6 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-[var(--brand)]">Current Pain</h3>
+                    <p class="mt-2 text-base text-slate-700">Fragmented communication, siloed workflows, and reactive management.</p>
                 </article>
-                <article class="rounded-2xl border border-slate-200 bg-[var(--card)] p-5 shadow-sm">
-                    <h3 class="text-2xl font-semibold text-[var(--teal)]">Core Problem</h3>
-                    <p class="mt-2 text-lg">Exit Block creates hidden bottlenecks between clinical readiness and discharge flow.</p>
+                <article class="rounded-2xl border border-[var(--line)] bg-[var(--card)] p-6 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-[var(--brand)]">Core Problem</h3>
+                    <p class="mt-2 text-base text-slate-700">Exit Block creates hidden bottlenecks between clinical readiness and discharge flow.</p>
                 </article>
-                <article class="rounded-2xl border border-slate-200 bg-[var(--card)] p-5 shadow-sm">
-                    <h3 class="text-2xl font-semibold text-[var(--teal)]">Healora Shift</h3>
-                    <p class="mt-2 text-lg">From reactive crisis handling to predictive, AI-guided operational control.</p>
+                <article class="rounded-2xl border border-[var(--line)] bg-[var(--card)] p-6 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-[var(--brand)]">Healora Shift</h3>
+                    <p class="mt-2 text-base text-slate-700">From reactive crisis handling to predictive, AI-guided operational control.</p>
                 </article>
             </div>
         </section>
 
-        <section id="features" class="mx-auto max-w-7xl px-4 py-14 lg:px-8">
-            <h2 class="text-center text-4xl font-bold text-[var(--teal-dark)]">Platform Features</h2>
-            <p class="mt-3 text-center text-xl text-slate-600">Everything hospitals need to detect and resolve congestion early.</p>
+        <section id="technology" class="py-14">
+            <h2 class="text-center text-4xl font-bold text-[var(--brand-dark)]">Platform Features</h2>
+            <p class="mt-3 text-center text-lg text-[var(--muted)]">Everything hospitals need to detect and resolve congestion early.</p>
             <div class="mt-8 grid gap-4 md:grid-cols-3">
                 @foreach ([
                     ['FHIR Data Integration', 'Realtime integration with EHR/HIS, bed occupancy, staff, and OR schedules.'],
@@ -93,17 +110,17 @@
                     ['Alerting System', 'Critical notifications through dashboard, email, or SMS channels.'],
                     ['Compliance by Design', 'End-to-end encryption, RBAC, and Saudi data residency-ready architecture.'],
                 ] as $feature)
-                    <article class="rounded-2xl border border-slate-200 bg-[var(--card)] p-5 shadow-sm">
-                        <h3 class="text-2xl font-semibold text-[var(--teal)]">{{ $feature[0] }}</h3>
-                        <p class="mt-2 text-lg">{{ $feature[1] }}</p>
+                    <article class="rounded-2xl border border-[var(--line)] bg-[var(--card)] p-6 shadow-sm">
+                        <h3 class="text-2xl font-semibold text-[var(--brand)]">{{ $feature[0] }}</h3>
+                        <p class="mt-2 text-base text-slate-700">{{ $feature[1] }}</p>
                     </article>
                 @endforeach
             </div>
         </section>
 
-        <section id="impact" class="mx-auto max-w-7xl px-4 py-14 lg:px-8">
-            <h2 class="text-center text-4xl font-bold text-[var(--teal-dark)]">Measurable Impact</h2>
-            <p class="mt-3 text-center text-xl text-slate-600">Operational, financial, and patient-care impact in one platform.</p>
+        <section id="services" class="py-14">
+            <h2 class="text-center text-4xl font-bold text-[var(--brand-dark)]">Measurable Impact</h2>
+            <p class="mt-3 text-center text-lg text-[var(--muted)]">Operational, financial, and patient-care impact in one platform.</p>
             <div class="mt-8 grid gap-4 md:grid-cols-4">
                 @foreach ([
                     ['Patient Impact', 'Reduced waiting times and better patient flow to improve care outcomes.'],
@@ -111,54 +128,13 @@
                     ['Decision Culture', 'Operational teams move from reactive firefighting to proactive planning.'],
                     ['Vision 2030 Impact', 'Supports Saudi Health Sector Transformation with smarter public healthcare.'],
                 ] as $impact)
-                    <article class="rounded-2xl border border-slate-200 bg-[var(--card)] p-5 shadow-sm">
-                        <h3 class="text-2xl font-semibold text-[var(--teal)]">{{ $impact[0] }}</h3>
-                        <p class="mt-2 text-lg">{{ $impact[1] }}</p>
+                    <article class="rounded-2xl border border-[var(--line)] bg-[var(--card)] p-6 shadow-sm">
+                        <h3 class="text-2xl font-semibold text-[var(--brand)]">{{ $impact[0] }}</h3>
+                        <p class="mt-2 text-base text-slate-700">{{ $impact[1] }}</p>
                     </article>
                 @endforeach
             </div>
         </section>
-
-        <section class="mx-auto max-w-7xl px-4 py-14 lg:px-8">
-            <h2 class="text-center text-4xl font-bold text-[var(--teal-dark)]">Research That Informed Healora</h2>
-            <p class="mt-3 text-center text-xl text-slate-600">The platform is grounded in recent evidence on health system transformation, predictive analytics, and population health operations.</p>
-            <div class="mt-8 grid gap-4 md:grid-cols-3">
-                <article class="rounded-2xl border border-slate-200 bg-[var(--card)] p-5 shadow-sm">
-                    <p class="inline-block rounded-full bg-teal-100 px-2 py-1 text-xs font-semibold text-[var(--teal-dark)]">Arabic Reference (2026)</p>
-                    <h3 class="mt-3 text-2xl font-semibold text-[var(--teal)]">Latest Updates in Health Systems and Solutions (2026)</h3>
-                    <p class="mt-2 text-lg">This study highlights accelerating digital transformation, the importance of interoperability, cybersecurity readiness, and AI's role in improving operational efficiency while reducing administrative burden.</p>
-                </article>
-                <article class="rounded-2xl border border-slate-200 bg-[var(--card)] p-5 shadow-sm">
-                    <p class="inline-block rounded-full bg-teal-100 px-2 py-1 text-xs font-semibold text-[var(--teal-dark)]">Arabic Reference (2026)</p>
-                    <h3 class="mt-3 text-2xl font-semibold text-[var(--teal)]">AI Systems in Healthcare (2026)</h3>
-                    <p class="mt-2 text-lg">The report supports predictive-system trends, AI-enabled clinical decision support, and integration with EHRs and operational hospital systems.</p>
-                </article>
-                <article class="rounded-2xl border border-slate-200 bg-[var(--card)] p-5 shadow-sm">
-                    <p class="inline-block rounded-full bg-teal-100 px-2 py-1 text-xs font-semibold text-[var(--teal-dark)]">AJMC 2023</p>
-                    <h3 class="mt-3 text-2xl font-semibold text-[var(--teal)]">Planning for the Future of Population Health</h3>
-                    <p class="mt-2 text-lg">The Johns Hopkins experience shows that success depends on unified operating structures, analytics roadmaps, and cross-department care coordination to reduce avoidable utilization and improve outcomes.</p>
-                </article>
-            </div>
-            <div class="mt-4 rounded-2xl border border-teal-200 bg-teal-50 p-4 text-lg">
-                <span class="font-semibold text-[var(--teal-dark)]">How this shaped Healora:</span>
-                Healora is designed as a real-time hospital control tower built on early prediction and actionable recommendations, aligned with modern health transformation requirements and Vision 2030 direction.
-            </div>
-        </section>
-
-        <section id="contact" class="bg-gradient-to-r from-[#167b83] to-[#0d6570] py-14 text-white">
-            <div class="mx-auto max-w-7xl px-4 text-center lg:px-8">
-                <h2 class="text-4xl font-bold">Ready to see Healora in action?</h2>
-                <p class="mx-auto mt-3 max-w-2xl text-xl text-teal-50">Open the live demo and explore a real control-tower workflow.</p>
-                <div class="mt-7 flex justify-center gap-3">
-                    <a href="{{ route('dashboard') }}" class="rounded-xl bg-white px-7 py-3 text-sm font-semibold text-[var(--teal-dark)]">Open Demo</a>
-                    <a href="{{ route('dashboard') }}" class="rounded-xl border border-white/40 bg-white/10 px-7 py-3 text-sm font-semibold text-white">Request Pilot</a>
-                </div>
-            </div>
-        </section>
-
-        <footer class="border-t border-slate-200 bg-white py-5 text-center text-sm text-slate-500">
-            © 2026 Healora Platform - AI-Powered Hospital Operations
-        </footer>
     </main>
 </body>
 </html>
