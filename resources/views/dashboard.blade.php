@@ -89,11 +89,11 @@
                 </section>
 
                 <section class="rounded-2xl border border-teal-100 bg-white p-4 shadow-sm">
-                    <h2 class="text-4xl font-semibold text-teal-700">Alert Feed</h2>
+                    <h2 class="text-3xl font-semibold text-teal-700">Alert Feed</h2>
                     <p class="mb-3 mt-1 text-xs text-slate-500">Updated at <span id="updatedAt">{{ $updated_at }}</span></p>
                     <ul id="alertsList" class="space-y-3">
                         @foreach ($alerts as $alert)
-                            <li class="rounded-2xl border px-5 py-4 text-lg font-medium leading-tight {{ str_starts_with($alert, 'High:') ? 'border-rose-200 bg-rose-50 text-rose-900' : (str_starts_with($alert, 'Medium:') ? 'border-amber-200 bg-amber-50 text-amber-900' : 'border-emerald-200 bg-emerald-50 text-emerald-900') }}">{{ $alert }}</li>
+                            <li class="rounded-2xl border px-5 py-4 text-base font-medium leading-tight {{ str_starts_with($alert, 'High:') ? 'border-rose-200 bg-rose-50 text-rose-900' : (str_starts_with($alert, 'Medium:') ? 'border-amber-200 bg-amber-50 text-amber-900' : 'border-emerald-200 bg-emerald-50 text-emerald-900') }}">{{ $alert }}</li>
                         @endforeach
                     </ul>
                 </section>
@@ -107,6 +107,17 @@
     <script>
         const dataUrl = @json(route('dashboard.data'));
         let currentPredictions = @json($predictions);
+        let alertHistory = @json($alerts).map((message) => ({ message, time: null }));
+
+        function getRiyadhTime() {
+            return new Intl.DateTimeFormat('en-GB', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false,
+                timeZone: 'Asia/Riyadh',
+            }).format(new Date());
+        }
 
         function buildChart(predictions) {
             const svg = document.getElementById('chart');
@@ -138,31 +149,41 @@
 
         function alertClass(alert) {
             if (alert.startsWith('High:')) {
-                return 'rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-lg font-medium text-rose-900';
+                return 'rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-base font-medium text-rose-900';
             }
             if (alert.startsWith('Medium:')) {
-                return 'rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-lg font-medium text-amber-900';
+                return 'rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-base font-medium text-amber-900';
             }
-            return 'rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-lg font-medium text-emerald-900';
+            return 'rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-base font-medium text-emerald-900';
         }
 
         function renderList(elementId, items, classes, listType = 'normal') {
             const list = document.getElementById(elementId);
             if (listType === 'alerts') {
-                list.innerHTML = items.map((item) => `<li class="${alertClass(item)}">${item}</li>`).join('');
+                list.innerHTML = items.map((item) => {
+                    const message = typeof item === 'string' ? item : item.message;
+                    return `<li class="${alertClass(message)}">${message}</li>`;
+                }).join('');
                 return;
             }
             list.innerHTML = items.map((item) => `<li class="${classes}">${item}</li>`).join('');
         }
 
         function applyData(data) {
+            const nowRiyadh = getRiyadhTime();
             document.getElementById('occupancy').textContent = data.ed_occupancy;
             document.getElementById('boarding').textContent = data.boarding_patients;
             document.getElementById('beds').textContent = data.available_beds;
             document.getElementById('wait').textContent = data.avg_wait_time;
-            document.getElementById('updatedAt').textContent = data.updated_at;
+            document.getElementById('updatedAt').textContent = nowRiyadh;
             currentPredictions = data.predictions;
             buildChart(currentPredictions);
+
+            // Keep a running alert timeline so alerts stack over time.
+            data.alerts.forEach((message) => {
+                alertHistory.unshift({ message, time: nowRiyadh });
+            });
+            alertHistory = alertHistory.slice(0, 12);
 
             renderList(
                 'recommendationsList',
@@ -171,7 +192,7 @@
             );
             renderList(
                 'alertsList',
-                data.alerts,
+                alertHistory,
                 '',
                 'alerts'
             );
@@ -188,7 +209,9 @@
             }
         }
 
+        document.getElementById('updatedAt').textContent = getRiyadhTime();
         buildChart(currentPredictions);
+        renderList('alertsList', alertHistory, '', 'alerts');
         window.setInterval(refreshData, 8000);
     </script>
 </body>
