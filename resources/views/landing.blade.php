@@ -91,6 +91,7 @@
         <section class="relative overflow-hidden pt-14 text-white" style="background-image: linear-gradient(to right, var(--hero-start), var(--hero-mid), var(--hero-end));">
             <div class="pointer-events-none absolute -top-10 left-16 h-56 w-56 rounded-full bg-teal-300/20 blur-3xl"></div>
             <div class="pointer-events-none absolute top-16 right-10 h-48 w-48 rounded-full bg-cyan-300/20 blur-3xl"></div>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent via-[#071631]/70 to-[#06132b]"></div>
             <div class="mx-auto max-w-7xl px-4 lg:px-8">
                 <div>
                     <span class="inline-flex items-center gap-2 rounded-full border border-white/30 px-4 py-1 text-xs font-semibold tracking-wide" style="background-color: var(--hero-pill);">
@@ -107,8 +108,10 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-12 border-t border-white/15 bg-[#06132b]/90 py-5">
-                <div class="mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+            <div class="relative mt-12 py-5">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#061127]/94 via-[#081830]/92 to-[#072038]/92"></div>
+                <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+                <div class="relative z-10 mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
                     <div class="rounded-2xl border border-[#203353] bg-[#0b1a36] p-5">
                         <p class="text-sm text-slate-400">Prediction Accuracy</p>
                         <p class="mt-1 text-4xl font-bold text-[#56d5cc]">95-98%</p>
