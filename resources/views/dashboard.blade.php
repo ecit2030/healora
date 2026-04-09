@@ -68,7 +68,7 @@
                 <img src="{{ asset('brand/healora-wordmark.png') }}" alt="Healora wordmark" class="h-10 w-auto object-contain">
             </a>
             <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
-                <a href="{{ route('landing') }}" class="transition hover:text-teal-700">Landing</a>
+                <a href="{{ route('landing') }}" class="transition hover:text-teal-700">Home</a>
                 <a href="{{ route('dashboard') }}" class="text-teal-700">Live Board</a>
                 <a href="{{ route('recommendations') }}" class="transition hover:text-teal-700">Recommendations</a>
             </nav>

@@ -220,6 +220,7 @@
                 <a href="#why" class="transition hover:text-[var(--teal)]">Why Healora</a>
                 <a href="#features" class="transition hover:text-[var(--teal)]">Features</a>
                 <a href="#impact" class="transition hover:text-[var(--teal)]">Impact</a>
+                <a href="{{ route('dashboard') }}" class="transition hover:text-[var(--teal)]">Demo</a>
             </nav>
             <div class="flex items-center gap-2">
                 <button id="themeToggleLanding" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[var(--line)] bg-[var(--surface)] text-[var(--text)] transition hover:opacity-90" aria-label="Toggle color theme" title="Toggle color theme">
