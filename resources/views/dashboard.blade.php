@@ -32,46 +32,46 @@
     </header>
 
     <section class="bg-gradient-to-r from-[#1a8a90] to-[#116b75]">
-        <div class="mx-auto max-w-7xl px-4 py-10 lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 py-8 lg:px-8">
             <div class="mb-3 flex gap-2">
                 <span class="rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-medium text-white">Demo Environment</span>
                 <span class="rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-medium text-white">Data-Driven Decisions</span>
             </div>
-            <h1 class="text-5xl font-bold text-white">Healora Command Center</h1>
-            <p class="mt-3 max-w-4xl text-xl text-teal-50">Example of how hospital operations teams monitor congestion, receive predictive alerts, and execute decisions in one control-tower dashboard.</p>
+            <h1 class="text-3xl font-bold text-white md:text-4xl">Healora Command Center</h1>
+            <p class="mt-2 max-w-4xl text-base text-teal-50 md:text-lg">Example of how hospital operations teams monitor congestion, receive predictive alerts, and execute decisions in one control-tower dashboard.</p>
         </div>
     </section>
 
-    <main class="mx-auto max-w-7xl px-4 py-8 lg:px-8">
+    <main class="mx-auto max-w-7xl px-4 py-6 lg:px-8">
         <section class="grid gap-5 lg:grid-cols-12">
             <div class="space-y-4 lg:col-span-3">
                 <article class="rounded-2xl border border-teal-100 bg-white p-4 shadow-sm">
-                    <p class="text-2xl font-semibold text-[var(--teal)]">Hospital Status</p>
+                    <p class="text-xl font-semibold text-[var(--teal)]">Hospital Status</p>
                     <div class="mt-3 space-y-2">
                         <div class="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2">
                             <p class="text-sm text-slate-500">ED Occupancy</p>
-                            <p class="text-3xl font-bold text-teal-700"><span id="occupancy">{{ $ed_occupancy }}</span>%</p>
+                            <p class="text-2xl font-bold text-teal-700"><span id="occupancy">{{ $ed_occupancy }}</span>%</p>
                         </div>
                         <div class="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2">
                             <p class="text-sm text-slate-500">Boarding Patients</p>
-                            <p class="text-3xl font-bold text-slate-800" id="boarding">{{ $boarding_patients }}</p>
+                            <p class="text-2xl font-bold text-slate-800" id="boarding">{{ $boarding_patients }}</p>
                         </div>
                         <div class="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2">
                             <p class="text-sm text-slate-500">Available Beds</p>
-                            <p class="text-3xl font-bold text-slate-800" id="beds">{{ $available_beds }}</p>
+                            <p class="text-2xl font-bold text-slate-800" id="beds">{{ $available_beds }}</p>
                         </div>
                         <div class="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2">
                             <p class="text-sm text-slate-500">Avg Wait Time</p>
-                            <p class="text-3xl font-bold text-teal-700"><span id="wait">{{ $avg_wait_time }}</span>m</p>
+                            <p class="text-2xl font-bold text-teal-700"><span id="wait">{{ $avg_wait_time }}</span>m</p>
                         </div>
                     </div>
                 </article>
 
                 <section class="rounded-2xl border border-teal-100 bg-white p-4 shadow-sm">
-                    <h2 class="text-xl font-semibold text-teal-700">AI Recommendations</h2>
+                    <h2 class="text-lg font-semibold text-teal-700">AI Recommendations</h2>
                     <ul id="recommendationsList" class="mt-3 list-disc space-y-2 pl-5 text-slate-700">
                         @foreach ($recommendations as $recommendation)
-                            <li class="text-[1.05rem] leading-8">{{ $recommendation }}</li>
+                            <li class="text-sm leading-7 md:text-base">{{ $recommendation }}</li>
                         @endforeach
                     </ul>
                 </section>
@@ -80,7 +80,7 @@
             <div class="space-y-4 lg:col-span-9">
                 <section class="rounded-2xl border border-teal-100 bg-white p-4 shadow-sm">
                     <div class="mb-2 flex items-center justify-between">
-                        <h2 class="text-2xl font-semibold text-teal-700">Predicted ED Congestion (Next 12 Hours)</h2>
+                        <h2 class="text-xl font-semibold text-teal-700 md:text-2xl">Predicted ED Congestion (Next 12 Hours)</h2>
                         <span class="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">AI Model Active</span>
                     </div>
                     <div class="h-56 rounded-xl bg-slate-50 p-2">
@@ -89,11 +89,11 @@
                 </section>
 
                 <section class="rounded-2xl border border-teal-100 bg-white p-4 shadow-sm">
-                    <h2 class="text-3xl font-semibold text-teal-700">Alert Feed</h2>
+                    <h2 class="text-2xl font-semibold text-teal-700">Alert Feed</h2>
                     <p class="mb-3 mt-1 text-xs text-slate-500">Updated at <span id="updatedAt">{{ $updated_at }}</span></p>
                     <ul id="alertsList" class="space-y-3">
                         @foreach ($alerts as $alert)
-                            <li class="rounded-2xl border px-5 py-4 text-base font-medium leading-tight {{ str_starts_with($alert, 'High:') ? 'border-rose-200 bg-rose-50 text-rose-900' : (str_starts_with($alert, 'Medium:') ? 'border-amber-200 bg-amber-50 text-amber-900' : 'border-emerald-200 bg-emerald-50 text-emerald-900') }}">{{ $alert }}</li>
+                            <li class="rounded-2xl border px-4 py-3 text-sm font-medium leading-6 md:text-base {{ str_starts_with($alert, 'High:') ? 'border-rose-200 bg-rose-50 text-rose-900' : (str_starts_with($alert, 'Medium:') ? 'border-amber-200 bg-amber-50 text-amber-900' : 'border-emerald-200 bg-emerald-50 text-emerald-900') }}">{{ $alert }}</li>
                         @endforeach
                     </ul>
                 </section>
@@ -149,12 +149,12 @@
 
         function alertClass(alert) {
             if (alert.startsWith('High:')) {
-                return 'rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-base font-medium text-rose-900';
+                return 'rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm md:text-base font-medium text-rose-900';
             }
             if (alert.startsWith('Medium:')) {
-                return 'rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-base font-medium text-amber-900';
+                return 'rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm md:text-base font-medium text-amber-900';
             }
-            return 'rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-base font-medium text-emerald-900';
+            return 'rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm md:text-base font-medium text-emerald-900';
         }
 
         function renderList(elementId, items, classes, listType = 'normal') {
@@ -188,7 +188,7 @@
             renderList(
                 'recommendationsList',
                 data.recommendations,
-                'text-[1.05rem]'
+                'text-sm md:text-base leading-7'
             );
             renderList(
                 'alertsList',
