@@ -20,7 +20,7 @@
     <header class="border-b border-slate-200 bg-white/95">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
             <a href="{{ route('landing') }}" class="flex items-center gap-3">
-                <img src="{{ asset('brand/healora-logo.png') }}" alt="Healora logo" class="h-11 w-36 rounded-lg object-cover ring-1 ring-slate-200">
+                <img src="{{ asset('brand/healora-wordmark.png') }}" alt="Healora wordmark" class="h-10 w-auto object-contain">
             </a>
             <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
                 <a href="{{ route('landing') }}" class="transition hover:text-teal-700">Landing</a>
