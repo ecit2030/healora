@@ -7,33 +7,41 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root{
-            --bg-soft:#e9f3f4;
+            --brand-green:#009785;
+            --brand-green-hover:#006b60;
+            --brand-pink:#d57bfe;
+            --brand-purple:#b275ff;
+            --bg-soft:#faf5fc;
             --surface:#ffffff;
-            --teal:#157b84;
-            --teal-dark:#0f5d68;
-            --card:#f7fbfc;
-            --line:#d7e2ea;
+            --teal:var(--brand-green);
+            --teal-dark:var(--brand-green-hover);
+            --card:#fdf8ff;
+            --line:#e5c7f9;
             --text:#1e293b;
             --muted:#5f7188;
-            --hero-start:#0b2530;
-            --hero-mid:#0f3d4e;
-            --hero-end:#0f766e;
-            --hero-body:#d9f8f4;
+            --hero-start:#003d38;
+            --hero-mid:#009785;
+            --hero-end:#b275ff;
+            --hero-body:#e8faf7;
             --hero-pill:#ffffff26;
         }
         body.dark-mode{
-            --bg-soft:#0b1320;
-            --surface:#0f1b2e;
-            --teal:#2dd4bf;
-            --teal-dark:#14b8a6;
-            --card:#111e33;
-            --line:#21324f;
-            --text:#e6eefb;
-            --muted:#9ab0cf;
-            --hero-start:#0b2530;
-            --hero-mid:#0f3d4e;
-            --hero-end:#0f766e;
-            --hero-body:#d9f8f4;
+            --brand-green:#5fe8d4;
+            --brand-green-hover:#009785;
+            --brand-pink:#d57bfe;
+            --brand-purple:#c99cff;
+            --bg-soft:#0f0818;
+            --surface:#1a1224;
+            --teal:var(--brand-green);
+            --teal-dark:var(--brand-green-hover);
+            --card:#1e1635;
+            --line:rgba(178,117,255,0.35);
+            --text:#f5e9ff;
+            --muted:#c9a8e8;
+            --hero-start:#003d38;
+            --hero-mid:#009785;
+            --hero-end:#b275ff;
+            --hero-body:#e8faf7;
             --hero-pill:#ffffff26;
         }
         .glass{
@@ -82,13 +90,13 @@
             --h-fg:#0f172a;
             --h-muted:#475569;
             --h-soft:#64748b;
-            background:linear-gradient(152deg,#f1f5f9 0%,#eef6f9 38%,#e2e8f0 72%,#dbeafe 100%);
+            background:linear-gradient(152deg,#fdf8ff 0%,#f0faf9 38%,rgba(213,123,254,0.14) 72%,rgba(178,117,255,0.12) 100%);
             color:var(--h-fg);
             transition:background .55s ease,color .35s ease;
         }
         body.dark-mode .hero-landing{
             --h-fg:#ffffff;
-            --h-muted:#d1fae5;
+            --h-muted:#e9b8ff;
             --h-soft:rgba(255,255,255,0.72);
             background:linear-gradient(to right,var(--hero-start),var(--hero-mid),var(--hero-end));
             color:var(--h-fg);
@@ -102,8 +110,8 @@
                 180deg,
                 rgba(255,255,255,0) 0%,
                 rgba(241,245,249,0.28) 18%,
-                rgba(233,243,244,0.75) 55%,
-                rgba(233,243,244,0.97) 82%,
+                rgba(213,123,254,0.12) 55%,
+                rgba(0,151,133,0.06) 82%,
                 var(--bg-soft) 100%
             );
             border-top:none;
@@ -145,20 +153,20 @@
             min-height:2.25rem;
             margin-top:2.5rem;
             margin-bottom:0;
-            background:linear-gradient(180deg,transparent 0%,rgba(219,234,254,0.14) 55%,rgba(226,232,240,0.28) 100%);
+            background:linear-gradient(180deg,transparent 0%,rgba(213,123,254,0.16) 55%,rgba(0,151,133,0.08) 100%);
             pointer-events:none;
         }
         @media (min-width:1024px){
             .hero-kpi-bridge{ min-height:2.75rem; margin-top:3rem; }
         }
         body.dark-mode .hero-kpi-bridge{
-            background:linear-gradient(180deg,transparent 0%,rgba(20,184,166,0.07) 45%,rgba(11,37,48,0.25) 100%);
+            background:linear-gradient(180deg,transparent 0%,rgba(0,151,133,0.1) 45%,rgba(178,117,255,0.22) 100%);
         }
         .hero-brain{
-            filter:drop-shadow(0 8px 24px rgba(14,165,233,0.25));
+            filter:drop-shadow(0 8px 24px rgba(213,123,254,0.35));
         }
         body.dark-mode .hero-brain{
-            filter:drop-shadow(0 8px 28px rgba(45,212,191,0.35));
+            filter:drop-shadow(0 8px 28px rgba(0,151,133,0.4));
         }
         .hero-hand-img{
             filter:drop-shadow(0 28px 48px rgba(15,23,42,0.14));
@@ -188,8 +196,8 @@
             background:rgba(15,27,46,0.88)!important;
         }
         body.dark-mode .hero-float-badge{
-            background:rgba(20,184,166,0.22)!important;
-            color:#99f6e4!important;
+            background:rgba(0,151,133,0.22)!important;
+            color:#f0d4ff!important;
         }
         body.dark-mode .hero-float-muted{
             color:#94a3b8!important;
@@ -238,9 +246,9 @@
 
     <main>
         <section class="hero-landing relative overflow-hidden pt-12 pb-0">
-            <div class="pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full bg-sky-200/35 blur-3xl"></div>
-            <div class="pointer-events-none absolute -right-16 top-24 h-64 w-64 rounded-full bg-cyan-200/30 blur-3xl"></div>
-            <div class="pointer-events-none absolute bottom-32 left-1/2 h-40 w-64 -translate-x-1/2 rounded-full bg-teal-200/20 blur-3xl"></div>
+            <div class="pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full bg-[#d57bfe]/25 blur-3xl"></div>
+            <div class="pointer-events-none absolute -right-16 top-24 h-64 w-64 rounded-full bg-[#009785]/20 blur-3xl"></div>
+            <div class="pointer-events-none absolute bottom-32 left-1/2 h-40 w-64 -translate-x-1/2 rounded-full bg-[#b275ff]/20 blur-3xl"></div>
             <div class="relative z-[1] mx-auto max-w-7xl px-4 lg:px-8">
                 <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-8 lg:py-4">
                     <div>
@@ -287,7 +295,7 @@
                         </div>
                         <div class="hero-float-card hero-float-surface relative z-20 mx-auto mt-5 w-full max-w-sm rounded-2xl border border-slate-200/80 bg-white/95 px-3.5 py-3 shadow-lg shadow-slate-900/10 backdrop-blur-md lg:absolute lg:top-6 lg:left-0 lg:mx-0 lg:mt-0 lg:w-[220px] lg:max-w-none lg:-translate-x-3 xl:-translate-x-5 xl:shadow-xl">
                             <div class="flex items-center gap-2">
-                                <span class="hero-float-badge flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[10px] font-bold text-sky-800">ED</span>
+                                <span class="hero-float-badge flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[rgba(0,151,133,0.15)] text-[10px] font-bold text-[#004d45]">ED</span>
                                 <div class="min-w-0">
                                     <p class="hero-float-muted text-[10px] font-semibold uppercase tracking-wide text-slate-500">Live board</p>
                                     <p class="hero-float-strong text-sm font-semibold text-slate-900">Flow stabilizing</p>
@@ -426,17 +434,17 @@
             <p class="mt-3 text-center text-xl text-[var(--muted)]">The platform is grounded in recent evidence on health system transformation, predictive analytics, and population health operations.</p>
             <div class="mt-8 grid gap-4 md:grid-cols-3">
                 <article class="rounded-2xl border border-[var(--line)] bg-[var(--card)] p-5 shadow-sm">
-                    <p class="inline-block rounded-full bg-teal-400/20 px-2 py-1 text-xs font-semibold text-[var(--teal)]">Arabic Reference (2026)</p>
+                    <p class="inline-block rounded-full bg-[rgba(213,123,254,0.35)] px-2 py-1 text-xs font-semibold text-[var(--teal)]">Arabic Reference (2026)</p>
                     <h3 class="mt-3 flex items-center gap-2 text-2xl font-semibold text-[var(--teal)]"><span class="icon-pill !mr-0"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M7 4h10a2 2 0 0 1 2 2v12l-3-2-3 2-3-2-3 2V6a2 2 0 0 1 2-2Z"/></svg></span>Latest Updates in Health Systems and Solutions (2026)</h3>
                     <p class="mt-2 text-lg text-[var(--muted)]">This study highlights accelerating digital transformation, the importance of interoperability, cybersecurity readiness, and AI's role in improving operational efficiency while reducing administrative burden.</p>
                 </article>
                 <article class="rounded-2xl border border-[var(--line)] bg-[var(--card)] p-5 shadow-sm">
-                    <p class="inline-block rounded-full bg-teal-400/20 px-2 py-1 text-xs font-semibold text-[var(--teal)]">Arabic Reference (2026)</p>
+                    <p class="inline-block rounded-full bg-[rgba(213,123,254,0.35)] px-2 py-1 text-xs font-semibold text-[var(--teal)]">Arabic Reference (2026)</p>
                     <h3 class="mt-3 flex items-center gap-2 text-2xl font-semibold text-[var(--teal)]"><span class="icon-pill !mr-0"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7a3 3 0 1 1 6 0v1a3 3 0 0 1 2 2.8V13a2 2 0 0 1-2 2v2a3 3 0 1 1-6 0v-2a2 2 0 0 1-2-2v-2.2A3 3 0 0 1 9 8V7Z"/></svg></span>AI Systems in Healthcare (2026)</h3>
                     <p class="mt-2 text-lg text-[var(--muted)]">The report supports predictive-system trends, AI-enabled clinical decision support, and integration with EHRs and operational hospital systems.</p>
                 </article>
                 <article class="rounded-2xl border border-[var(--line)] bg-[var(--card)] p-5 shadow-sm">
-                    <p class="inline-block rounded-full bg-teal-400/20 px-2 py-1 text-xs font-semibold text-[var(--teal)]">AJMC 2023</p>
+                    <p class="inline-block rounded-full bg-[rgba(213,123,254,0.35)] px-2 py-1 text-xs font-semibold text-[var(--teal)]">AJMC 2023</p>
                     <h3 class="mt-3 flex items-center gap-2 text-2xl font-semibold text-[var(--teal)]"><span class="icon-pill !mr-0"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14M9 20v-4h6v4M9 8h.01M15 8h.01M9 12h.01M15 12h.01"/></svg></span>Planning for the Future of Population Health</h3>
                     <p class="mt-2 text-lg text-[var(--muted)]">The Johns Hopkins experience shows that success depends on unified operating structures, analytics roadmaps, and cross-department care coordination to reduce avoidable utilization and improve outcomes.</p>
                 </article>
@@ -447,10 +455,10 @@
             </div>
         </section>
 
-        <section id="contact" class="bg-gradient-to-r from-[#0d2f3c] to-[#0f5d68] py-14 text-white">
+        <section id="contact" class="bg-gradient-to-r from-[#003d38] via-[#009785] to-[#b275ff] py-14 text-white">
             <div class="mx-auto max-w-7xl px-4 text-center lg:px-8">
                 <h2 class="text-4xl font-bold">Ready to see Healora in action?</h2>
-                <p class="mx-auto mt-3 max-w-2xl text-xl text-teal-50">Open the live demo and explore a real control-tower workflow.</p>
+                <p class="mx-auto mt-3 max-w-2xl text-xl text-white/90">Open the live demo and explore a real control-tower workflow.</p>
                 <div class="mt-7 flex flex-wrap justify-center gap-3">
                     <a href="{{ route('dashboard') }}" class="rounded-xl bg-[var(--teal)] px-7 py-3 text-sm font-semibold text-slate-900">Open Demo</a>
                     <a href="{{ route('dashboard') }}" class="rounded-xl border border-white/40 bg-white/10 px-7 py-3 text-sm font-semibold text-white">Request Pilot</a>

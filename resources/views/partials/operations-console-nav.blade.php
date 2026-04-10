@@ -7,13 +7,13 @@
     $opsNetworkFlow = $opsNetworkFlow ?? null;
 @endphp
 @if (! empty($hospitalNav))
-    <nav class="operations-console-nav dash-sidebar mb-6 overflow-hidden rounded-2xl border border-teal-100 bg-white shadow-sm lg:mb-0" aria-labelledby="ops-console-label">
-        <div class="border-b border-slate-100/80 bg-gradient-to-br from-slate-50/90 to-white px-4 py-4 sm:px-5">
+    <nav class="operations-console-nav dash-sidebar mb-6 overflow-hidden rounded-2xl border border-[#d57bfe]/45 bg-white shadow-sm lg:mb-0" aria-labelledby="ops-console-label">
+        <div class="border-b border-slate-100/80 bg-gradient-to-br from-[rgba(213,123,254,0.12)] via-white to-[rgba(0,151,133,0.06)] px-4 py-4 sm:px-5">
             <p id="ops-console-label" class="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Operations console</p>
             <div class="mt-3 flex flex-row gap-2 lg:flex-col lg:gap-2">
                 <a
                     href="{{ route('dashboard') }}"
-                    class="dash-focus flex min-h-[2.75rem] flex-1 items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-semibold transition lg:flex-none {{ $onLive ? 'bg-teal-700 text-white shadow-sm shadow-teal-900/15' : 'border border-slate-200/90 bg-white text-slate-700 hover:border-teal-200 hover:bg-teal-50/50' }}"
+                    class="dash-focus flex min-h-[2.75rem] flex-1 items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-semibold transition lg:flex-none {{ $onLive ? 'bg-[#009785] text-white shadow-sm shadow-[#004d45]/20' : 'border border-slate-200/90 bg-white text-slate-700 hover:border-[#d57bfe]/50 hover:bg-[rgba(0,151,133,0.07)]' }}"
                     @if ($onLive) aria-current="page" @endif
                 >
                     <svg class="h-4 w-4 shrink-0 opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 13h6V5H4v8Zm10 6h6v-8h-6v8ZM4 21h6v-6H4v6Zm10-8h6V5h-6v8Z"/></svg>
@@ -21,7 +21,7 @@
                 </a>
                 <a
                     href="{{ route('recommendations') }}"
-                    class="dash-focus flex min-h-[2.75rem] flex-1 items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-semibold transition lg:flex-none {{ $onRec ? 'bg-teal-700 text-white shadow-sm shadow-teal-900/15' : 'border border-slate-200/90 bg-white text-slate-700 hover:border-teal-200 hover:bg-teal-50/50' }}"
+                    class="dash-focus flex min-h-[2.75rem] flex-1 items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-semibold transition lg:flex-none {{ $onRec ? 'bg-[#009785] text-white shadow-sm shadow-[#004d45]/20' : 'border border-slate-200/90 bg-white text-slate-700 hover:border-[#d57bfe]/50 hover:bg-[rgba(0,151,133,0.07)]' }}"
                     @if ($onRec) aria-current="page" @endif
                 >
                     <svg class="h-4 w-4 shrink-0 opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3h6M10 3v3l-3 9v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-6l-3-9V3"/><path stroke-linecap="round" d="M7 15h10"/></svg>
@@ -29,7 +29,7 @@
                 </a>
                 <a
                     href="{{ route('dashboard.hospitals') }}"
-                    class="dash-focus flex min-h-[2.75rem] flex-1 items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-semibold transition lg:flex-none {{ $onHospitalsIndex ? 'bg-teal-700 text-white shadow-sm shadow-teal-900/15' : 'border border-slate-200/90 bg-white text-slate-700 hover:border-teal-200 hover:bg-teal-50/50' }}"
+                    class="dash-focus flex min-h-[2.75rem] flex-1 items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-semibold transition lg:flex-none {{ $onHospitalsIndex ? 'bg-[#009785] text-white shadow-sm shadow-[#004d45]/20' : 'border border-slate-200/90 bg-white text-slate-700 hover:border-[#d57bfe]/50 hover:bg-[rgba(0,151,133,0.07)]' }}"
                     @if ($onHospitalsIndex) aria-current="page" @endif
                 >
                     <svg class="h-4 w-4 shrink-0 opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z"/></svg>
@@ -50,9 +50,9 @@
                             <dt class="text-[10px] font-semibold uppercase tracking-wide text-slate-500">Near DC</dt>
                             <dd class="mt-0.5 text-lg font-bold tabular-nums text-emerald-800">{{ $opsNetworkFlow['avg_near_discharge'] }}</dd>
                         </div>
-                        <div class="rounded-lg bg-white/90 px-1.5 py-2 ring-1 ring-teal-200/50">
+                        <div class="rounded-lg bg-white/90 px-1.5 py-2 ring-1 ring-[#d57bfe]/40">
                             <dt class="text-[10px] font-semibold uppercase tracking-wide text-slate-500">Combined</dt>
-                            <dd class="mt-0.5 text-lg font-bold tabular-nums text-teal-800">{{ $opsNetworkFlow['avg_combined'] }}</dd>
+                            <dd class="mt-0.5 text-lg font-bold tabular-nums text-[var(--teal)]">{{ $opsNetworkFlow['avg_combined'] }}</dd>
                         </div>
                     </dl>
                     <p class="mt-2.5 border-t border-slate-200/80 pt-2.5 text-[11px] leading-relaxed text-slate-600">
@@ -84,18 +84,18 @@
                     <li class="w-[min(100%,17.5rem)] shrink-0 lg:w-auto">
                         <a
                             href="{{ route('hospitals.show', $h['slug']) }}"
-                            class="dash-focus group flex w-full items-start gap-3 rounded-xl border px-3 py-2.5 text-left transition {{ $isH ? 'border-teal-400/80 bg-teal-50 ring-2 ring-teal-200/60' : 'border-slate-100 bg-slate-50/80 hover:border-teal-200 hover:bg-white' }}"
+                            class="dash-focus group flex w-full items-start gap-3 rounded-xl border px-3 py-2.5 text-left transition {{ $isH ? 'border-[#009785]/50 bg-[rgba(0,151,133,0.09)] ring-2 ring-[#d57bfe]/45' : 'border-slate-100 bg-slate-50/80 hover:border-[#d57bfe]/45 hover:bg-white' }}"
                             @if ($isH) aria-current="page" @endif
                         >
                             @if (! empty($hospitalLogo))
-                                <span class="flex h-10 w-10 shrink-0 overflow-hidden rounded-lg border shadow-sm {{ $isSfhLogo ? 'hospital-logo-slot--sfh border-slate-200/90' : 'border-teal-200/60 bg-white group-hover:border-teal-300' }}">
+                                <span class="flex h-10 w-10 shrink-0 overflow-hidden rounded-lg border shadow-sm {{ $isSfhLogo ? 'hospital-logo-slot--sfh border-slate-200/90' : 'border-[#d57bfe]/45 bg-white group-hover:border-[#009785]/50' }}">
                                     @include('partials.hospital-logo-img', [
                                         'src' => asset($hospitalLogo),
                                         'alt' => $h['name'] ?? 'Hospital',
                                     ])
                                 </span>
                             @else
-                                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-teal-200/60 bg-white text-[11px] font-bold tabular-nums text-teal-800 shadow-sm group-hover:border-teal-300">{{ $h['short'] ?? $h['slug'] }}</span>
+                                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[#d57bfe]/45 bg-white text-[11px] font-bold tabular-nums text-[var(--brand-green-ink)] shadow-sm group-hover:border-[#009785]/50">{{ $h['short'] ?? $h['slug'] }}</span>
                             @endif
                             <span class="min-w-0 flex-1">
                                 <span class="block text-[13px] font-semibold leading-snug text-slate-800 group-hover:text-slate-900">{{ $h['name'] }}</span>

@@ -33,26 +33,34 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
     <style>
         :root {
-            --bg-soft: #e9f3f4;
+            --brand-green: #009785;
+            --brand-green-hover: #006b60;
+            --brand-green-ink: #004d45;
+            --brand-pink: #d57bfe;
+            --brand-purple: #b275ff;
+            --bg-soft: #faf5fc;
             --surface: #ffffff;
-            --teal: #157b84;
-            --teal-dark: #0f5d68;
-            --card: #f7fbfc;
-            --line: #d7e2ea;
+            --teal: var(--brand-green);
+            --teal-dark: var(--brand-green-hover);
+            --card: #fdf8ff;
+            --line: #e5c7f9;
             --text: #1e293b;
             --muted: #5f7188;
             --chart-grid: rgba(15,23,42,0.06);
             --chart-tick: #64748b;
         }
         body.dark-mode {
-            --bg-soft: #0b1320;
-            --surface: #0f1b2e;
-            --teal: #2dd4bf;
-            --teal-dark: #14b8a6;
-            --card: #111e33;
-            --line: #21324f;
-            --text: #e6eefb;
-            --muted: #9ab0cf;
+            --brand-green: #5fe8d4;
+            --brand-green-hover: #009785;
+            --brand-green-ink: #b8fff0;
+            --bg-soft: #0f0818;
+            --surface: #1a1224;
+            --teal: var(--brand-green);
+            --teal-dark: var(--brand-green-hover);
+            --card: #1e1635;
+            --line: rgba(178, 117, 255, 0.35);
+            --text: #f5e9ff;
+            --muted: #c9a8e8;
             --chart-grid: rgba(148,163,184,0.12);
             --chart-tick: #94a3b8;
         }
@@ -79,10 +87,10 @@
         body.dark-mode .ops-network-flow-summary .border-slate-200\/80 { border-color: var(--line) !important; }
         body.dark-mode .ops-network-flow-summary .bg-white\/90 { background: rgba(255, 255, 255, 0.06) !important; }
         body.dark-mode .ops-network-flow-summary .ring-slate-200\/60,
-        body.dark-mode .ops-network-flow-summary .ring-teal-200\/50 { --tw-ring-color: var(--line) !important; }
+        body.dark-mode .ops-network-flow-summary .ring-\[\#d57bfe\]\/40 { --tw-ring-color: var(--line) !important; }
         body.dark-mode .ops-network-flow-summary .text-amber-800 { color: #fcd34d !important; }
         body.dark-mode .ops-network-flow-summary .text-emerald-800 { color: #6ee7b7 !important; }
-        body.dark-mode .ops-network-flow-summary .text-teal-800 { color: var(--teal) !important; }
+        body.dark-mode .ops-network-flow-summary .text-[var(--teal)] { color: var(--teal) !important; }
         body.dark-mode .dash-sidebar > .border-b {
             background: rgba(255, 255, 255, 0.04) !important;
             border-color: var(--line) !important;
@@ -111,16 +119,16 @@
     </style>
 </head>
 <body class="min-h-screen bg-[var(--bg-soft)] text-[var(--text)] antialiased">
-    <header class="border-b border-slate-200 bg-white/95">
+    <header class="border-b border-[#d57bfe]/40 bg-white/95">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
             <a href="{{ route('landing') }}" class="flex items-center gap-3">
                 <img src="{{ asset('brand/healora-wordmark.png') }}" alt="Healora wordmark" class="h-10 w-auto object-contain">
             </a>
             <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
-                <a href="{{ route('landing') }}" class="transition hover:text-teal-700">Home</a>
-                <a href="{{ route('dashboard') }}" class="transition hover:text-teal-700">Live Board</a>
-                <a href="{{ route('recommendations') }}" class="transition hover:text-teal-700">Recommendations</a>
-                <a href="{{ route('dashboard.hospitals') }}" class="text-teal-700">Hospital Charts</a>
+                <a href="{{ route('landing') }}" class="transition hover:text-[var(--teal)]">Home</a>
+                <a href="{{ route('dashboard') }}" class="transition hover:text-[var(--teal)]">Live Board</a>
+                <a href="{{ route('recommendations') }}" class="transition hover:text-[var(--teal)]">Recommendations</a>
+                <a href="{{ route('dashboard.hospitals') }}" class="text-[var(--teal)]">Hospital Charts</a>
             </nav>
             <div class="flex items-center gap-2">
                 <button id="themeToggleHospital" type="button" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-700 transition hover:bg-slate-50" aria-label="Toggle color theme">
@@ -130,12 +138,12 @@
                         </svg>
                     </span>
                 </button>
-                <a href="{{ route('dashboard') }}" class="rounded-xl bg-teal-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-800">Command Center</a>
+                <a href="{{ route('dashboard') }}" class="rounded-xl bg-[var(--teal)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[var(--brand-green-hover)]">Command Center</a>
             </div>
         </div>
     </header>
 
-    <section class="border-b border-teal-800/20 bg-gradient-to-br from-[#115e63] via-[#157b84] to-[#0f766e]" aria-labelledby="hospital-page-title">
+    <section class="border-b border-[#009785]/30 bg-gradient-to-br from-[#003d38] via-[#009785] to-[#b275ff]" aria-labelledby="hospital-page-title">
         <div class="mx-auto max-w-[1560px] px-4 py-8 sm:py-10 lg:px-8">
             <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
                 @if (! empty($hospital['logo']))
@@ -149,13 +157,13 @@
                 <div class="min-w-0 flex-1">
                     <div class="flex flex-wrap items-center gap-2">
                         <span class="inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-medium text-white">
-                            <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-pulse rounded-full bg-emerald-300 opacity-70"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-200"></span></span>
+                            <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-pulse rounded-full bg-[#d57bfe] opacity-70"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-[#7ef0dc]"></span></span>
                             Demo
                         </span>
-                        <span class="text-xs font-medium text-teal-100/90">Illustrative metrics</span>
+                        <span class="text-xs font-medium text-white/85">Illustrative metrics</span>
                     </div>
                     <h1 id="hospital-page-title" class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-4xl">{{ $hospital['name'] }}</h1>
-                    <p class="mt-3 max-w-3xl text-base leading-relaxed text-teal-50 sm:text-lg">{{ $hospital['city'] ?? '' }} · Demo throughput charts (synthetic data).</p>
+                    <p class="mt-3 max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg">{{ $hospital['city'] ?? '' }} · Demo throughput charts (synthetic data).</p>
                 </div>
             </div>
         </div>
@@ -175,21 +183,21 @@
 
             <div class="order-1 min-w-0 lg:order-none lg:col-span-9 xl:col-span-9 space-y-8">
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <article class="demo-panel rounded-2xl border border-teal-100 bg-white p-5 shadow-sm">
+            <article class="demo-panel rounded-2xl border border-[#d57bfe]/40 bg-gradient-to-br from-white to-[rgba(213,123,254,0.1)] p-5 shadow-sm">
                 <p class="text-sm text-slate-500">ED occupancy</p>
-                <p class="mt-1 text-3xl font-bold text-teal-700">{{ $metrics['ed_occupancy'] ?? '—' }}%</p>
+                <p class="mt-1 text-3xl font-bold text-[var(--teal)]">{{ $metrics['ed_occupancy'] ?? '—' }}%</p>
             </article>
-            <article class="demo-panel rounded-2xl border border-teal-100 bg-white p-5 shadow-sm">
+            <article class="demo-panel rounded-2xl border border-[#d57bfe]/40 bg-gradient-to-br from-white to-[rgba(213,123,254,0.1)] p-5 shadow-sm">
                 <p class="text-sm text-slate-500">Boarding</p>
                 <p class="mt-1 text-3xl font-bold text-slate-800">{{ $metrics['boarding'] ?? '—' }}</p>
             </article>
-            <article class="demo-panel rounded-2xl border border-teal-100 bg-white p-5 shadow-sm">
+            <article class="demo-panel rounded-2xl border border-[#d57bfe]/40 bg-gradient-to-br from-white to-[rgba(213,123,254,0.1)] p-5 shadow-sm">
                 <p class="text-sm text-slate-500">Avg wait</p>
-                <p class="mt-1 text-3xl font-bold text-teal-700">{{ $metrics['avg_wait'] ?? '—' }}<span class="text-lg font-semibold text-slate-400">m</span></p>
+                <p class="mt-1 text-3xl font-bold text-[var(--teal)]">{{ $metrics['avg_wait'] ?? '—' }}<span class="text-lg font-semibold text-slate-400">m</span></p>
             </article>
-            <article class="demo-panel rounded-2xl border border-teal-100 bg-white p-5 shadow-sm">
+            <article class="demo-panel rounded-2xl border border-[#d57bfe]/40 bg-gradient-to-br from-white to-[rgba(213,123,254,0.1)] p-5 shadow-sm">
                 <p class="text-sm text-slate-500">Model confidence</p>
-                <p class="mt-1 text-3xl font-bold text-teal-700">{{ $metrics['prediction'] ?? '—' }}%</p>
+                <p class="mt-1 text-3xl font-bold text-[var(--teal)]">{{ $metrics['prediction'] ?? '—' }}%</p>
             </article>
         </div>
 
@@ -199,16 +207,16 @@
                 <p class="mt-1 text-3xl font-bold tabular-nums text-amber-800">{{ count($stuckPatients) }}</p>
                 <p class="mt-1 text-xs text-slate-500">LOS over target (demo)</p>
             </article>
-            <article class="demo-panel rounded-2xl border border-emerald-100 bg-white p-5 shadow-sm ring-1 ring-emerald-100/60">
+            <article class="demo-panel rounded-2xl border border-[#009785]/25 bg-white p-5 shadow-sm ring-1 ring-[rgba(0,151,133,0.2)]">
                 <p class="text-sm font-medium text-slate-600">Near discharge</p>
-                <p class="mt-1 text-3xl font-bold tabular-nums text-emerald-800">{{ count($dischargeReadyPatients) }}</p>
+                <p class="mt-1 text-3xl font-bold tabular-nums text-[var(--brand-green-ink)]">{{ count($dischargeReadyPatients) }}</p>
                 <p class="mt-1 text-xs text-slate-500">Awaiting final steps (demo)</p>
             </article>
         </div>
 
-        <section class="demo-panel rounded-2xl border border-teal-100 bg-white p-6 shadow-sm" aria-labelledby="patient-flow-heading">
+        <section class="demo-panel rounded-2xl border border-[#d57bfe]/40 bg-gradient-to-br from-white to-[rgba(213,123,254,0.1)] p-6 shadow-sm" aria-labelledby="patient-flow-heading">
             <div class="flex flex-col gap-1 border-b border-slate-100 pb-4 sm:flex-row sm:items-end sm:justify-between">
-                <h2 id="patient-flow-heading" class="text-lg font-semibold text-teal-700">Patient flow</h2>
+                <h2 id="patient-flow-heading" class="text-lg font-semibold text-[var(--teal)]">Patient flow</h2>
                 <p class="text-xs text-slate-500">Synthetic rows</p>
             </div>
             <div class="mt-6 grid gap-8 lg:grid-cols-2">
@@ -237,7 +245,7 @@
                                         <td class="px-3 py-2.5 font-mono text-xs font-semibold text-slate-600">{{ $row['zone'] ?? '—' }}</td>
                                         <td class="px-3 py-2.5 tabular-nums text-slate-700">{{ $los }}</td>
                                         <td class="px-3 py-2.5 text-xs">
-                                            <span class="font-semibold tabular-nums {{ $meds ? 'text-teal-700' : 'text-amber-700' }}">{{ $meds ? 'Received' : 'Pending' }}</span>
+                                            <span class="font-semibold tabular-nums {{ $meds ? 'text-[var(--teal)]' : 'text-amber-700' }}">{{ $meds ? 'Received' : 'Pending' }}</span>
                                         </td>
                                     </tr>
                                 @empty
@@ -272,7 +280,7 @@
                                         <td class="px-3 py-2.5 font-mono text-xs font-semibold text-slate-600">{{ $row['zone'] ?? '—' }}</td>
                                         <td class="px-3 py-2.5 tabular-nums text-slate-700">{{ $m }} min</td>
                                         <td class="px-3 py-2.5 text-xs">
-                                            <span class="font-semibold tabular-nums {{ $meds ? 'text-teal-700' : 'text-amber-700' }}">{{ $meds ? 'Received' : 'Pending' }}</span>
+                                            <span class="font-semibold tabular-nums {{ $meds ? 'text-[var(--teal)]' : 'text-amber-700' }}">{{ $meds ? 'Received' : 'Pending' }}</span>
                                         </td>
                                     </tr>
                                 @empty
@@ -299,20 +307,20 @@
         </section>
 
         <div class="grid gap-6 lg:grid-cols-12">
-            <section class="demo-panel flex flex-col rounded-2xl border border-teal-100 bg-white p-6 shadow-sm lg:col-span-7">
-                <h2 class="text-lg font-semibold text-teal-700">ED census · 12h</h2>
+            <section class="demo-panel flex flex-col rounded-2xl border border-[#d57bfe]/40 bg-gradient-to-br from-white to-[rgba(213,123,254,0.1)] p-6 shadow-sm lg:col-span-7">
+                <h2 class="text-lg font-semibold text-[var(--teal)]">ED census · 12h</h2>
                 <div class="demo-panel-muted mt-4 flex-1 rounded-xl border border-slate-100 bg-slate-50 p-3">
                     <div class="relative h-64 w-full md:h-72"><canvas id="chartEdCensus"></canvas></div>
                 </div>
             </section>
-            <section class="demo-panel flex flex-col rounded-2xl border border-teal-100 bg-white p-6 shadow-sm lg:col-span-5">
-                <h2 class="text-lg font-semibold text-teal-700">Risk mix</h2>
+            <section class="demo-panel flex flex-col rounded-2xl border border-[#d57bfe]/40 bg-gradient-to-br from-white to-[rgba(213,123,254,0.1)] p-6 shadow-sm lg:col-span-5">
+                <h2 class="text-lg font-semibold text-[var(--teal)]">Risk mix</h2>
                 <div class="demo-panel-muted mt-4 flex flex-1 items-center justify-center rounded-xl border border-slate-100 bg-slate-50 p-4">
                     <div class="relative mx-auto h-56 w-56 max-w-full"><canvas id="chartRiskMix"></canvas></div>
                 </div>
             </section>
-            <section class="demo-panel rounded-2xl border border-teal-100 bg-white p-6 shadow-sm lg:col-span-12">
-                <h2 class="text-lg font-semibold text-teal-700">Ward stress</h2>
+            <section class="demo-panel rounded-2xl border border-[#d57bfe]/40 bg-gradient-to-br from-white to-[rgba(213,123,254,0.1)] p-6 shadow-sm lg:col-span-12">
+                <h2 class="text-lg font-semibold text-[var(--teal)]">Ward stress</h2>
                 <div class="demo-panel-muted mt-4 rounded-xl border border-slate-100 bg-slate-50 p-3">
                     <div class="relative h-64 w-full md:h-72"><canvas id="chartWardStress"></canvas></div>
                 </div>
@@ -357,7 +365,7 @@
             }
             function P() {
                 return {
-                    teal: cssVar('--teal', '#157b84'),
+                    teal: cssVar('--teal', '#009785'),
                     muted: cssVar('--muted', '#64748b'),
                     line: cssVar('--chart-grid', '#ccc'),
                     tick: cssVar('--chart-tick', '#64748b'),
@@ -385,7 +393,7 @@
                 }
                 var c2 = document.getElementById('chartWardStress');
                 if (c2 && window.Chart) {
-                    var t2 = cssVar('--teal-dark', '#0f5d68');
+                    var t2 = cssVar('--brand-purple', '#b275ff');
                     charts.push(new Chart(c2, {
                         type: 'bar',
                         data: { labels: payload.wards, datasets: [{ data: payload.ward, borderRadius: 10, backgroundColor: [col.teal, t2, col.teal, t2, col.teal, t2], borderColor: col.line, borderWidth: 1 }] },
@@ -396,7 +404,7 @@
                 if (c3 && window.Chart) {
                     charts.push(new Chart(c3, {
                         type: 'doughnut',
-                        data: { labels: payload.riskLabels, datasets: [{ data: payload.risk, borderWidth: 2, borderColor: col.surface, backgroundColor: [col.teal, '#38bdf8', '#f97316'] }] },
+                        data: { labels: payload.riskLabels, datasets: [{ data: payload.risk, borderWidth: 2, borderColor: col.surface, backgroundColor: [col.teal, '#d57bfe', '#f97316'] }] },
                         options: { responsive: true, maintainAspectRatio: false, cutout: '58%', plugins: { legend: { position: 'bottom', labels: { color: col.tick, boxWidth: 10, font: { size: 11 } } } } }
                     }));
                 }
