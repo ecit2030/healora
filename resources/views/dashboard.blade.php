@@ -138,8 +138,9 @@
 
     <header class="sticky top-0 z-50 border-b border-[#d57bfe]/40 bg-white/95 shadow-sm backdrop-blur-md">
         <div class="mx-auto flex max-w-[1560px] items-center justify-between gap-4 px-4 py-3 sm:py-3.5 lg:px-8">
-            <a href="{{ route('landing') }}" class="dash-focus flex shrink-0 items-center gap-3 rounded-lg outline-none ring-offset-2">
+            <a href="{{ route('landing') }}" class="dash-focus flex shrink-0 items-center gap-2.5 rounded-lg outline-none ring-offset-2">
                 <img src="{{ asset('brand/healora-logo.png') }}" alt="Healora logo" class="h-9 w-auto object-contain sm:h-10">
+                <span class="text-base font-semibold tracking-tight text-[var(--brand-green-ink)] sm:text-lg">Healora</span>
             </a>
             <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
                 <a href="{{ route('landing') }}" class="dash-focus rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900">Home</a>

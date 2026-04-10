@@ -51,8 +51,9 @@
 <body class="min-h-screen bg-[var(--bg-soft)] text-[var(--text)] antialiased">
     <header class="border-b border-[#d57bfe]/40 bg-white/95">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
-            <a href="{{ route('landing') }}" class="flex items-center gap-3">
+            <a href="{{ route('landing') }}" class="flex items-center gap-2.5">
                 <img src="{{ asset('brand/healora-logo.png') }}" alt="Healora logo" class="h-10 w-auto object-contain">
+                <span class="text-lg font-semibold tracking-tight text-[var(--teal)]">Healora</span>
             </a>
             <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
                 <a href="{{ route('landing') }}" class="transition hover:text-[var(--teal)]">Home</a>
