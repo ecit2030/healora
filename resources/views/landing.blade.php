@@ -26,21 +26,21 @@
             --hero-pill:#ffffff26;
         }
         body.dark-mode{
-            --brand-green:#b8fff0;
-            --brand-green-hover:#7cf5da;
-            --brand-pink:#f2cfff;
-            --brand-purple:#d3adff;
-            --bg-soft:#07050d;
-            --surface:#0e0a16;
+            --brand-green:#5fe8d4;
+            --brand-green-hover:#009785;
+            --brand-pink:#d57bfe;
+            --brand-purple:#c99cff;
+            --bg-soft:#0f0818;
+            --surface:#1a1224;
             --teal:var(--brand-green);
             --teal-dark:var(--brand-green-hover);
-            --card:#161022;
-            --line:rgba(213,123,254,0.28);
-            --text:#ffffff;
-            --muted:#f2cfff;
-            --hero-start:#08060f;
-            --hero-mid:#0d1c1a;
-            --hero-end:#231232;
+            --card:#1e1635;
+            --line:rgba(178,117,255,0.35);
+            --text:#f5e9ff;
+            --muted:#c9a8e8;
+            --hero-start:#003d38;
+            --hero-mid:#009785;
+            --hero-end:#b275ff;
             --hero-body:#e8faf7;
             --hero-pill:#ffffff26;
         }
@@ -193,7 +193,7 @@
         }
         body.dark-mode .hero-float-surface{
             border-color:rgba(255,255,255,0.15)!important;
-            background:rgba(14,10,22,0.96)!important;
+            background:rgba(15,27,46,0.88)!important;
         }
         body.dark-mode .hero-float-badge{
             background:rgba(0,151,133,0.22)!important;
@@ -206,8 +206,8 @@
             color:#fff!important;
         }
         body.dark-mode .hero-kpi-card{
-            border-color:rgba(213,123,254,0.28)!important;
-            background:#0e0a16!important;
+            border-color:#203353!important;
+            background:#0b1a36!important;
         }
         body.dark-mode .hero-kpi-label{
             color:#94a3b8!important;

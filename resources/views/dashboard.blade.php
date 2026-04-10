@@ -24,20 +24,20 @@
             --muted: #64748b;
         }
         body.dark-mode {
-            --brand-green: #b8fff0;
-            --brand-green-hover: #7cf5da;
-            --brand-green-ink: #d9fff4;
-            --brand-green-soft: rgba(0, 151, 133, 0.14);
-            --brand-pink: #f2cfff;
-            --brand-purple: #d3adff;
-            --bg-soft: #07050d;
-            --purple-soft: #1a0f26;
+            --brand-green: #5fe8d4;
+            --brand-green-hover: #009785;
+            --brand-green-ink: #b8fff0;
+            --brand-green-soft: rgba(0, 151, 133, 0.18);
+            --brand-pink: #d57bfe;
+            --brand-purple: #c99cff;
+            --bg-soft: #0f0818;
+            --purple-soft: #2a1538;
             --teal: var(--brand-green);
             --teal-dark: var(--brand-green-hover);
-            --surface: #0e0a16;
-            --line: rgba(213, 123, 254, 0.28);
-            --text: #ffffff;
-            --muted: #f2cfff;
+            --surface: #1a1224;
+            --line: rgba(178, 117, 255, 0.35);
+            --text: #f5e9ff;
+            --muted: #c9a8e8;
         }
         .app-shell { background: var(--bg-soft); }
         .sr-only {
@@ -53,17 +53,15 @@
         }
         body.dark-mode .bg-white { background-color: var(--surface) !important; }
         body.dark-mode .bg-white\/95 { background-color: rgba(26, 18, 36, 0.92) !important; }
-        body.dark-mode .bg-slate-50 { background-color: rgba(255,255,255,0.02) !important; }
+        body.dark-mode .bg-slate-50 { background-color: rgba(255,255,255,0.04) !important; }
         body.dark-mode .border-slate-200,
         body.dark-mode .border-slate-100,
         body.dark-mode .border-emerald-100,
         body.dark-mode .border-violet-200 { border-color: var(--line) !important; }
-        body.dark-mode .text-slate-900,
         body.dark-mode .text-slate-800,
         body.dark-mode .text-slate-700,
         body.dark-mode .text-slate-600,
         body.dark-mode .text-slate-500 { color: var(--muted) !important; }
-        body.dark-mode .text-slate-900 { color: #fff !important; }
         body.dark-mode .operations-console-nav {
             background: var(--surface) !important;
             border-color: var(--line) !important;
@@ -93,10 +91,6 @@
         body.dark-mode .dash-card {
             background: var(--surface) !important;
             border-color: var(--line) !important;
-        }
-        body.dark-mode section[aria-labelledby="page-title"] {
-            border-color: rgba(213, 123, 254, 0.28) !important;
-            background: linear-gradient(135deg, #08060f 0%, #0d1c1a 48%, #231232 100%) !important;
         }
         .dash-card {
             border-radius: 1rem;

@@ -20,15 +20,15 @@
             --muted: #5f7188;
         }
         body.dark-mode {
-            --brand-green: #b8fff0;
-            --brand-green-hover: #7cf5da;
-            --brand-green-ink: #d9fff4;
-            --bg-soft: #07050d;
-            --surface: #0e0a16;
+            --brand-green: #5fe8d4;
+            --brand-green-hover: #009785;
+            --brand-green-ink: #b8fff0;
+            --bg-soft: #0f0818;
+            --surface: #1a1224;
             --teal: var(--brand-green);
-            --line: rgba(213, 123, 254, 0.28);
-            --text: #ffffff;
-            --muted: #f2cfff;
+            --line: rgba(178, 117, 255, 0.35);
+            --text: #f5e9ff;
+            --muted: #c9a8e8;
         }
         .theme-icon { width: 1rem; height: 1rem; stroke: currentColor; }
         .hospital-logo-slot--sfh,
@@ -43,11 +43,6 @@
         body.dark-mode .ops-network-flow-summary {
             background: rgba(255, 255, 255, 0.04) !important;
             border-color: var(--line) !important;
-        }
-        body.dark-mode .text-slate-900 { color: #fff !important; }
-        body.dark-mode section[aria-labelledby="hospitals-page-title"] {
-            border-color: rgba(213, 123, 254, 0.28) !important;
-            background: linear-gradient(135deg, #08060f 0%, #0d1c1a 48%, #231232 100%) !important;
         }
         body.dark-mode .ops-network-flow-summary .ring-\[\#d57bfe\]\/40 { --tw-ring-color: var(--line) !important; }
         body.dark-mode .ops-network-flow-summary .text-emerald-800 { color: #6ee7b7 !important; }
