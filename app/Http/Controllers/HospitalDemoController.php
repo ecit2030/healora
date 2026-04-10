@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class HospitalDemoController extends Controller
 {
-    public function index(): RedirectResponse
+    public function index(): View
     {
-        $first = self::hospitalRows()[0] ?? null;
-        if (! $first) {
-            abort(404);
-        }
-
-        return redirect()->route('hospitals.show', ['hospital' => $first['slug']]);
+        return view('hospitals.index', [
+            'hospitals' => self::hospitalRows(),
+            'hospitalNav' => self::navItems(),
+            'opsNetworkFlow' => self::networkPatientFlowSummary(),
+        ]);
     }
 
     public function show(string $hospital): View
@@ -103,7 +101,7 @@ class HospitalDemoController extends Controller
             return 'Discharge pipeline is busy: keep pharmacy and transport ahead of ETAs to avoid last-minute blocks.';
         }
 
-        return 'On average, flow is balanced across the demo network; keep monitoring each site in hospital charts.';
+        return 'On average, flow is balanced across the demo network; keep monitoring each site on Hospital Charts.';
     }
 
     /**

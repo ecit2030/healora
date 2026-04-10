@@ -3,6 +3,7 @@
     $activeHospitalSlug = $activeHospitalSlug ?? null;
     $onLive = request()->routeIs('dashboard');
     $onRec = request()->routeIs('recommendations');
+    $onHospitalsIndex = request()->routeIs('hospitals.index', 'dashboard.hospitals');
     $opsNetworkFlow = $opsNetworkFlow ?? null;
 @endphp
 @if (! empty($hospitalNav))
@@ -25,6 +26,14 @@
                 >
                     <svg class="h-4 w-4 shrink-0 opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3h6M10 3v3l-3 9v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-6l-3-9V3"/><path stroke-linecap="round" d="M7 15h10"/></svg>
                     Recommendations
+                </a>
+                <a
+                    href="{{ route('dashboard.hospitals') }}"
+                    class="dash-focus flex min-h-[2.75rem] flex-1 items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-semibold transition lg:flex-none {{ $onHospitalsIndex ? 'bg-teal-700 text-white shadow-sm shadow-teal-900/15' : 'border border-slate-200/90 bg-white text-slate-700 hover:border-teal-200 hover:bg-teal-50/50' }}"
+                    @if ($onHospitalsIndex) aria-current="page" @endif
+                >
+                    <svg class="h-4 w-4 shrink-0 opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z"/></svg>
+                    Hospital Charts
                 </a>
             </div>
 
@@ -57,7 +66,7 @@
         <div class="px-4 py-4 sm:px-5 sm:py-5">
             <div class="flex flex-wrap items-start justify-between gap-2 gap-y-1">
                 <div class="min-w-0">
-                    <h2 class="text-sm font-semibold text-[var(--teal)]">Hospital charts</h2>
+                    <h2 class="text-sm font-semibold text-[var(--teal)]">Hospital Charts</h2>
                     <p class="mt-0.5 text-xs leading-snug text-slate-500">Demo sites · sample data</p>
                 </div>
                 <span class="inline-flex shrink-0 items-center rounded-md border border-slate-200/80 bg-slate-50 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-500" title="Synthetic metrics for demos">Illustrative only</span>

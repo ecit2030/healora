@@ -120,7 +120,7 @@
                 <a href="{{ route('landing') }}" class="transition hover:text-teal-700">Home</a>
                 <a href="{{ route('dashboard') }}" class="transition hover:text-teal-700">Live Board</a>
                 <a href="{{ route('recommendations') }}" class="transition hover:text-teal-700">Recommendations</a>
-                <a href="{{ route('hospitals.index') }}" class="text-teal-700">Hospital charts</a>
+                <a href="{{ route('dashboard.hospitals') }}" class="text-teal-700">Hospital Charts</a>
             </nav>
             <div class="flex items-center gap-2">
                 <button id="themeToggleHospital" type="button" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-700 transition hover:bg-slate-50" aria-label="Toggle color theme">
@@ -135,20 +135,27 @@
         </div>
     </header>
 
-    <section class="bg-gradient-to-r from-[#1a8a90] to-[#116b75]">
-        <div class="mx-auto max-w-[1560px] px-4 py-8 lg:px-8">
-            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+    <section class="border-b border-teal-800/20 bg-gradient-to-br from-[#115e63] via-[#157b84] to-[#0f766e]" aria-labelledby="hospital-page-title">
+        <div class="mx-auto max-w-[1560px] px-4 py-8 sm:py-10 lg:px-8">
+            <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
                 @if (! empty($hospital['logo']))
-                    <div class="flex h-16 w-16 shrink-0 overflow-hidden rounded-2xl border shadow-lg sm:h-20 sm:w-20 {{ ($hospital['slug'] ?? '') === 'security-forces-riyadh' ? 'hospital-hero-logo--sfh border-slate-200/80 bg-white' : 'border-white/25 bg-white/10 backdrop-blur-sm' }}">
+                    <div class="flex h-16 w-16 shrink-0 overflow-hidden rounded-2xl border shadow-lg sm:h-20 sm:w-20 {{ ($hospital['slug'] ?? '') === 'security-forces-riyadh' ? 'hospital-hero-logo--sfh border-white/20 bg-white' : 'border-white/25 bg-white/10 backdrop-blur-sm' }}">
                         @include('partials.hospital-logo-img', [
                             'src' => asset($hospital['logo']),
                             'alt' => $hospital['name'],
                         ])
                     </div>
                 @endif
-                <div class="min-w-0">
-                    <h1 class="text-3xl font-bold text-white md:text-4xl">{{ $hospital['name'] }}</h1>
-                    <p class="mt-2 max-w-3xl text-teal-50">{{ $hospital['city'] ?? '' }} · Demo throughput charts (synthetic data).</p>
+                <div class="min-w-0 flex-1">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-medium text-white">
+                            <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-pulse rounded-full bg-emerald-300 opacity-70"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-200"></span></span>
+                            Demo
+                        </span>
+                        <span class="text-xs font-medium text-teal-100/90">Illustrative metrics</span>
+                    </div>
+                    <h1 id="hospital-page-title" class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-4xl">{{ $hospital['name'] }}</h1>
+                    <p class="mt-3 max-w-3xl text-base leading-relaxed text-teal-50 sm:text-lg">{{ $hospital['city'] ?? '' }} · Demo throughput charts (synthetic data).</p>
                 </div>
             </div>
         </div>
