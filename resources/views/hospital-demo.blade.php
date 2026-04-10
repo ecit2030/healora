@@ -50,19 +50,19 @@
             --chart-tick: #64748b;
         }
         body.dark-mode {
-            --brand-green: #5fe8d4;
-            --brand-green-hover: #009785;
-            --brand-green-ink: #b8fff0;
-            --bg-soft: #0f0818;
-            --surface: #1a1224;
+            --brand-green: #b8fff0;
+            --brand-green-hover: #7cf5da;
+            --brand-green-ink: #d9fff4;
+            --bg-soft: #07050d;
+            --surface: #0e0a16;
             --teal: var(--brand-green);
             --teal-dark: var(--brand-green-hover);
-            --card: #1e1635;
-            --line: rgba(178, 117, 255, 0.35);
-            --text: #f5e9ff;
-            --muted: #c9a8e8;
-            --chart-grid: rgba(148,163,184,0.12);
-            --chart-tick: #94a3b8;
+            --card: #161022;
+            --line: rgba(213, 123, 254, 0.28);
+            --text: #ffffff;
+            --muted: #f2cfff;
+            --chart-grid: rgba(242, 207, 255, 0.16);
+            --chart-tick: #f2cfff;
         }
         .theme-icon { width: 1rem; height: 1rem; stroke: currentColor; }
         .hospital-logo-slot--sfh,
@@ -101,9 +101,14 @@
             border-color: var(--line) !important;
             background: var(--surface) !important;
         }
+        body.dark-mode .text-slate-900 { color: #fff !important; }
         body.dark-mode .demo-panel-muted {
             background: rgba(255,255,255,0.04) !important;
             border-color: var(--line) !important;
+        }
+        body.dark-mode section[aria-labelledby="hospital-page-title"] {
+            border-color: rgba(213, 123, 254, 0.28) !important;
+            background: linear-gradient(135deg, #08060f 0%, #0d1c1a 48%, #231232 100%) !important;
         }
         body.dark-mode #meds-ai-action {
             background: rgba(120, 53, 15, 0.35) !important;
